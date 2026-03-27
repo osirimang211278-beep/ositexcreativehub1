@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ------------------------------------------------
-    // 2. HAMBURGER MENU - event listener inside DOM
+    // 2. HAMBURGER MENU
     // ------------------------------------------------
     const navLinks  = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ------------------------------------------------
-    // 3. GET STARTED MODAL - event listeners inside DOM
+    // 3. GET STARTED MODAL
     // ------------------------------------------------
     const modal = document.getElementById('getStartedModal');
     const form  = document.getElementById('getStartedForm');
@@ -146,6 +146,65 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
+    // ------------------------------------------------
+    // 4. PORTFOLIO FILTER - event listeners inside DOM
+    // ------------------------------------------------
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterPortfolio(this.getAttribute('data-filter'));
+        });
+    });
+
+
+    // ------------------------------------------------
+    // 5. TESTIMONIALS SLIDER SETUP
+    // ------------------------------------------------
+    generateDots();
+
+    // Auto slide every 5 seconds
+    let autoSlide = setInterval(() => slideTestimonials(1), 5000);
+
+    // Pause on hover
+    const slider = document.getElementById('testimonialsSlider');
+    if (slider) {
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        slider.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => slideTestimonials(1), 5000);
+        });
+    }
+
+
+    // ------------------------------------------------
+    // 6. STATS COUNTER - triggers when visible
+    // ------------------------------------------------
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats();
+                statsObserver.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) statsObserver.observe(portfolioSection);
+
+
+    // ------------------------------------------------
+    // 7. BACK TO TOP BUTTON - scroll listener
+    // ------------------------------------------------
+    window.addEventListener('scroll', () => {
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+    });
+
 });
 
 
@@ -154,28 +213,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Must be OUTSIDE DOMContentLoaded so HTML
 // onclick attributes can find them
 // ================================================
-
-// FAQ Accordion toggle
-function toggleFaq(button) {
-    const faqItem   = button.parentElement;
-    const answer    = faqItem.querySelector('.faq-answer');
-    const icon      = button.querySelector('.faq-icon');
-    const isOpen    = faqItem.classList.contains('open');
-
-    // Close all other open FAQ items first
-    document.querySelectorAll('.faq-item.open').forEach(item => {
-        item.classList.remove('open');
-        item.querySelector('.faq-answer').style.maxHeight = null;
-        item.querySelector('.faq-icon').textContent = '+';
-    });
-
-    // If it was not open, open it
-    if (!isOpen) {
-        faqItem.classList.add('open');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.textContent = '×';
-    }
-}
 
 // Hamburger toggle
 function toggleMenu() {
@@ -218,11 +255,31 @@ function closeModal() {
     }
 }
 
-// ------------------------------------------------
-// PORTFOLIO FILTER
-// ------------------------------------------------
+// FAQ Accordion toggle
+function toggleFaq(button) {
+    const faqItem = button.parentElement;
+    const answer  = faqItem.querySelector('.faq-answer');
+    const icon    = button.querySelector('.faq-icon');
+    const isOpen  = faqItem.classList.contains('open');
+
+    // Close all open FAQ items first
+    document.querySelectorAll('.faq-item.open').forEach(item => {
+        item.classList.remove('open');
+        item.querySelector('.faq-answer').style.maxHeight = null;
+        item.querySelector('.faq-icon').textContent = '+';
+    });
+
+    // If it was not open, open it
+    if (!isOpen) {
+        faqItem.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.textContent = '×';
+    }
+}
+
+// Portfolio filter
 function filterPortfolio(category) {
-    const cards = document.querySelectorAll('.portfolio-card');
+    const cards   = document.querySelectorAll('.portfolio-card');
     const buttons = document.querySelectorAll('.filter-btn');
 
     buttons.forEach(btn => {
@@ -233,7 +290,8 @@ function filterPortfolio(category) {
     });
 
     cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
+        if (category === 'all' ||
+            card.getAttribute('data-category') === category) {
             card.style.display = 'flex';
             setTimeout(() => card.style.opacity = '1', 10);
         } else {
@@ -243,41 +301,30 @@ function filterPortfolio(category) {
     });
 }
 
-// Add click events to filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        filterPortfolio(this.getAttribute('data-filter'));
-    });
-});
-
-
-// ------------------------------------------------
-// TESTIMONIALS SLIDER
-// ------------------------------------------------
+// Testimonials slider
 let currentSlide = 0;
 
 function slideTestimonials(direction) {
-    const track     = document.getElementById('testimonialsTrack');
-    const cards     = document.querySelectorAll('.testimonial-card');
-    const dots      = document.querySelectorAll('.dot');
-    const total     = cards.length;
+    const track = document.getElementById('testimonialsTrack');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots  = document.querySelectorAll('.dot');
+    const total = cards.length;
 
     currentSlide += direction;
 
     if (currentSlide < 0) currentSlide = total - 1;
     if (currentSlide >= total) currentSlide = 0;
 
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    if (track) {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
 
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentSlide);
     });
 }
 
-// Generate testimonial dots on load
-generateDots();
-
-// Generate dots
+// Generate slider dots
 function generateDots() {
     const dotsContainer = document.getElementById('sliderDots');
     const cards         = document.querySelectorAll('.testimonial-card');
@@ -297,22 +344,7 @@ function generateDots() {
     });
 }
 
-// Auto slide testimonials every 5 seconds
-let autoSlide = setInterval(() => slideTestimonials(1), 5000);
-
-// Pause auto slide on hover
-document.getElementById('testimonialsSlider')?.addEventListener('mouseenter', () => {
-    clearInterval(autoSlide);
-});
-
-document.getElementById('testimonialsSlider')?.addEventListener('mouseleave', () => {
-    autoSlide = setInterval(() => slideTestimonials(1), 5000);
-});
-
-
-// ------------------------------------------------
-// STATS COUNTER ANIMATION
-// ------------------------------------------------
+// Stats counter animation
 function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
 
@@ -334,44 +366,10 @@ function animateStats() {
     });
 }
 
-// Trigger stats animation when portfolio section is visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateStats();
-            statsObserver.disconnect();
-        }
-    });
-}, { threshold: 0.3 });
-
-const portfolioSection = document.getElementById('portfolio');
-if (portfolioSection) statsObserver.observe(portfolioSection);
-
-
-// ------------------------------------------------
-// BACK TO TOP BUTTON
-// ------------------------------------------------
-window.addEventListener('scroll', () => {
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-    }
-});
-
+// Back to top
 function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 }
-
-document.addEventListener('contextmenu', e => e.preventDefault());  // kills right-click
-document.addEventListener('keydown', e => {
-  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
-    e.preventDefault();
-  }
-});
