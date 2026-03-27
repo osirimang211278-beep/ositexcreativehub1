@@ -1,0 +1,1309 @@
+/* ================================================
+   OSITEX CREATIVE HUB - Hero Section Styles
+   hero.css
+   ================================================ */
+
+
+/* ------------------------------------------------
+   1. HERO SECTION CONTAINER
+------------------------------------------------ */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-primary);
+    overflow: hidden;
+    padding: 8rem 0 4rem;
+}
+
+
+/* ------------------------------------------------
+   2. GEOMETRIC BACKGROUND PATTERN
+------------------------------------------------ */
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.geo-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transform: rotate(45deg);
+}
+
+
+/* Shape 1 - Large diamond top left */
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+    border-color: rgba(0, 51, 204, 0.15);
+    animation: rotateSlow 20s linear infinite;
+}
+
+
+/* Shape 2 - Medium diamond top right */
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    right: 100px;
+    border-color: rgba(204, 0, 0, 0.1);
+    animation: rotateSlow 15s linear infinite reverse;
+}
+
+
+/* Shape 3 - Small diamond middle left */
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    left: 5%;
+    border-color: rgba(255, 204, 0, 0.08);
+    animation: rotateSlow 12s linear infinite;
+}
+
+
+/* Shape 4 - Large diamond bottom right */
+
+.shape-4 {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
+    border-color: rgba(0, 51, 204, 0.1);
+    animation: rotateSlow 25s linear infinite reverse;
+}
+
+
+/* Shape 5 - Small diamond bottom left */
+
+.shape-5 {
+    width: 100px;
+    height: 100px;
+    bottom: 100px;
+    left: 15%;
+    border-color: rgba(204, 0, 0, 0.08);
+    animation: rotateSlow 10s linear infinite;
+}
+
+@keyframes rotateSlow {
+    from {
+        transform: rotate(45deg);
+    }
+    to {
+        transform: rotate(405deg);
+    }
+}
+
+
+/* ------------------------------------------------
+   3. HERO WRAPPER - two column layout
+------------------------------------------------ */
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+
+/* ------------------------------------------------
+   4. HERO LEFT SIDE
+------------------------------------------------ */
+
+.hero-left {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+
+/* Welcome tag above title */
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 51, 204, 0.15);
+    border: 1px solid rgba(0, 51, 204, 0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-tag span {
+    color: var(--gray);
+    font-size: var(--text-sm);
+    font-weight: 500;
+}
+
+
+/* Glowing dot beside welcome tag */
+
+.tag-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    background: var(--yellow);
+    border-radius: 50%;
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(255, 204, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+    }
+}
+
+
+/* Main hero title */
+
+.hero-title {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Yellow highlighted part of title */
+
+.hero-title-highlight {
+    color: var(--yellow);
+    display: block;
+}
+
+
+/* Hero description paragraph */
+
+.hero-desc {
+    font-size: var(--text-md);
+    color: var(--gray-light);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+
+/* Call to action buttons */
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+
+/* Social media section */
+
+.hero-socials {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.socials-label {
+    color: var(--gray-light);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    white-space: nowrap;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+
+/* Small line after Follow Us text */
+
+.socials-label::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background: var(--gray-border);
+}
+
+.socials-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.socials-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gray-border);
+    border-radius: 50%;
+    transition: all var(--transition-normal);
+}
+
+.socials-icons a:hover {
+    background: var(--red);
+    border-color: var(--red);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-red);
+}
+
+.socials-icons img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+
+/* ------------------------------------------------
+   5. HERO RIGHT SIDE
+------------------------------------------------ */
+
+.hero-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Logo container with rings */
+
+.hero-logo-container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Three rotating rings */
+
+.logo-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.ring-outer {
+    width: 380px;
+    height: 380px;
+    border-color: rgba(0, 51, 204, 0.2);
+    animation: ringRotate 20s linear infinite;
+}
+
+.ring-middle {
+    width: 300px;
+    height: 300px;
+    border-color: rgba(204, 0, 0, 0.2);
+    animation: ringRotate 15s linear infinite reverse;
+}
+
+.ring-inner {
+    width: 220px;
+    height: 220px;
+    border-color: rgba(255, 204, 0, 0.2);
+    animation: ringRotate 10s linear infinite;
+}
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Logo box in center */
+
+.hero-logo-box {
+    position: relative;
+    z-index: 2;
+    width: 160px;
+    height: 160px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gray-border);
+    box-shadow: 0 0 40px rgba(0, 51, 204, 0.3), 0 0 80px rgba(0, 51, 204, 0.1);
+    animation: floatUpDown 4s ease-in-out infinite;
+}
+
+.hero-logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+/* Floating service badges */
+
+.hero-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    z-index: 3;
+    box-shadow: var(--shadow-md);
+}
+
+.badge-icon {
+    font-size: 1rem;
+}
+
+.badge-text {
+    color: var(--white);
+    font-size: var(--text-xs);
+    font-weight: 600;
+}
+
+
+/* Badge positions around the logo */
+
+.badge-1 {
+    top: 30px;
+    left: -20px;
+    animation: floatBadge1 4s ease-in-out infinite;
+    border-left: 3px solid var(--yellow);
+}
+
+.badge-2 {
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: floatBadge2 4s ease-in-out infinite 0.5s;
+    border-left: 3px solid var(--red);
+}
+
+.badge-3 {
+    bottom: 30px;
+    left: -20px;
+    animation: floatBadge3 4s ease-in-out infinite 1s;
+    border-left: 3px solid var(--blue-light);
+}
+
+@keyframes floatBadge1 {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes floatBadge2 {
+    0% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(calc(-50% - 8px));
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes floatBadge3 {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+/* ------------------------------------------------
+   6. SCROLL DOWN INDICATOR
+------------------------------------------------ */
+
+.hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1;
+}
+
+.hero-scroll span {
+    color: var(--gray-light);
+    font-size: var(--text-xs);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: var(--gray-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-dot {
+    width: 100%;
+    height: 30%;
+    background: var(--yellow);
+    position: absolute;
+    top: -30%;
+    animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+    0% {
+        top: -30%;
+    }
+    100% {
+        top: 130%;
+    }
+}
+
+
+/* ------------------------------------------------
+   7. RESPONSIVE - Tablets (max 1024px)
+------------------------------------------------ */
+
+@media (max-width: 1024px) {
+    .hero {
+        padding: 7rem 0 4rem;
+    }
+    .hero-wrapper {
+        gap: 2rem;
+    }
+    .hero-logo-container {
+        width: 320px;
+        height: 320px;
+    }
+    .ring-outer {
+        width: 320px;
+        height: 320px;
+    }
+    .ring-middle {
+        width: 250px;
+        height: 250px;
+    }
+    .ring-inner {
+        width: 180px;
+        height: 180px;
+    }
+    .hero-logo-box {
+        width: 130px;
+        height: 130px;
+    }
+    .hero-logo-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+/* ------------------------------------------------
+   8. RESPONSIVE - Mobile (max 768px)
+------------------------------------------------ */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 6rem 0 5rem;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    .hero-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+    .hero-bg {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .hero-left {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .hero-right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-title {
+        font-size: var(--text-3xl);
+    }
+    .hero-desc {
+        font-size: var(--text-base);
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-socials {
+        justify-content: center;
+    }
+    .hero-logo-container {
+        width: 280px;
+        height: 280px;
+    }
+    .ring-outer {
+        width: 280px;
+        height: 280px;
+    }
+    .ring-middle {
+        width: 210px;
+        height: 210px;
+    }
+    .ring-inner {
+        width: 150px;
+        height: 150px;
+    }
+    .hero-logo-box {
+        width: 110px;
+        height: 110px;
+    }
+    .hero-logo-img {
+        width: 70px;
+        height: 70px;
+    }
+    /* Reposition badges for mobile */
+    .badge-1 {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .badge-2 {
+        right: 0;
+        top: auto;
+        bottom: 60px;
+        transform: none;
+    }
+    .badge-3 {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .hero .container {
+        padding: 0 1.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/* ------------------------------------------------
+   9. RESPONSIVE - Small phones (max 480px)
+------------------------------------------------ */
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 5rem 0 4rem;
+    }
+    .hero-title {
+        font-size: var(--text-2xl);
+    }
+    .hero-tag span {
+        font-size: 0.7rem;
+    }
+    .hero-logo-container {
+        width: 240px;
+        height: 240px;
+        max-width: 100%;
+    }
+    .ring-outer {
+        width: 240px;
+        height: 240px;
+    }
+    .ring-middle {
+        width: 180px;
+        height: 180px;
+    }
+    .ring-inner {
+        width: 120px;
+        height: 120px;
+    }
+    .hero-logo-box {
+        width: 90px;
+        height: 90px;
+    }
+    .hero-logo-img {
+        width: 55px;
+        height: 55px;
+    }
+    .hero-badge {
+        padding: 0.4rem 0.75rem;
+    }
+    .badge-text {
+        font-size: 0.65rem;
+    }
+}
+
+
+/* ------------------------------------------------
+   10. RESPONSIVE - Very small phones (max 360px)
+------------------------------------------------ */
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: var(--text-xl);
+    }
+    .hero-desc {
+        font-size: var(--text-sm);
+    }
+    .hero-logo-container {
+        width: 200px;
+        height: 200px;
+    }
+    .ring-outer {
+        width: 200px;
+        height: 200px;
+    }
+    .ring-middle {
+        width: 150px;
+        height: 150px;
+    }
+    .ring-inner {
+        width: 100px;
+        height: 100px;
+    }
+    .hero-logo-box {
+        width: 75px;
+        height: 75px;
+    }
+    .hero-logo-img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+/* ================================================
+   INTRO ANIMATION OVERLAY
+================================================ */
+
+
+/* Main overlay covering full screen */
+
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+/* Slide up and disappear */
+
+.intro-overlay.slide-up {
+    animation: introSlideUp 0.8s ease-in-out forwards;
+}
+
+@keyframes introSlideUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+
+/* Hide completely after animation */
+
+.intro-overlay.hidden {
+    display: none;
+}
+
+
+/* ------------------------------------------------
+   INTRO BACKGROUND SHAPES
+------------------------------------------------ */
+
+.intro-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.intro-shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transform: rotate(45deg);
+}
+
+.ishape-1 {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -150px;
+    border-color: rgba(0, 51, 204, 0.15);
+    animation: rotateSlow 20s linear infinite;
+}
+
+.ishape-2 {
+    width: 250px;
+    height: 250px;
+    top: 50px;
+    right: 50px;
+    border-color: rgba(204, 0, 0, 0.1);
+    animation: rotateSlow 15s linear infinite reverse;
+}
+
+.ishape-3 {
+    width: 500px;
+    height: 500px;
+    bottom: -200px;
+    right: -200px;
+    border-color: rgba(0, 51, 204, 0.1);
+    animation: rotateSlow 25s linear infinite;
+}
+
+.ishape-4 {
+    width: 150px;
+    height: 150px;
+    bottom: 100px;
+    left: 10%;
+    border-color: rgba(255, 204, 0, 0.08);
+    animation: rotateSlow 12s linear infinite reverse;
+}
+
+/* ------------------------------------------------
+   GOLDEN FLARE LIGHT
+------------------------------------------------ */
+.intro-flare {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 204, 0, 0.4) 0%,
+        rgba(255, 204, 0, 0.1) 40%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(20px);
+}
+
+.intro-flare.animate {
+    animation: flareMove 1.5s ease-in-out forwards;
+}
+
+@keyframes flareMove {
+    0% {
+        opacity: 0;
+        top: -100px;
+        left: -100px;
+        transform: scale(0.5);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    70% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        top: 100%;
+        left: 100%;
+        transform: scale(0.3);
+    }
+}
+
+/* ------------------------------------------------
+   INTRO CONTENT
+------------------------------------------------ */
+.intro-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+/* Logo */
+.intro-logo {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: logoFadeIn 1s ease-out 0.3s forwards;
+}
+
+.intro-logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(255, 204, 0, 0.4));
+}
+
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Welcome To text */
+.intro-welcome {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.intro-welcome.show {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.intro-welcome span {
+    color: var(--gray-light);
+    font-size: var(--text-md);
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+}
+
+/* Company name typing */
+.intro-company {
+    opacity: 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.intro-company.show {
+    opacity: 1;
+}
+
+#introTyping {
+    color: var(--white);
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: var(--font-main);
+}
+
+/* Blinking cursor */
+.intro-cursor {
+    color: var(--yellow);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    animation: cursorBlink 0.7s ease-in-out infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* Subheading */
+.intro-sub {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.intro-sub.show {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.intro-sub p {
+    color: var(--yellow);
+    font-size: var(--text-md);
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: var(--font-main);
+    margin: 0;
+}
+
+/* Shared fade in up animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------
+   RESPONSIVE
+------------------------------------------------ */
+@media (max-width: 768px) {
+    .intro-logo img {
+        width: 90px;
+        height: 90px;
+    }
+
+    #introTyping {
+        font-size: var(--text-2xl);
+    }
+
+    .intro-cursor {
+        font-size: var(--text-2xl);
+    }
+
+    .intro-welcome span {
+        font-size: var(--text-base);
+        letter-spacing: 3px;
+    }
+
+    .intro-sub p {
+        font-size: var(--text-base);
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-logo img {
+        width: 70px;
+        height: 70px;
+    }
+
+    #introTyping {
+        font-size: var(--text-xl);
+        letter-spacing: 2px;
+    }
+
+    .intro-cursor {
+        font-size: var(--text-xl);
+    }
+
+    .intro-welcome span {
+        font-size: var(--text-sm);
+        letter-spacing: 2px;
+    }
+
+    .intro-sub p {
+        font-size: var(--text-sm);
+    }
+}
+
+/* ================================================
+   GET STARTED MODAL POPUP
+   hero.css
+================================================ */
+
+/* Overlay - dark background behind popup */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+/* When modal is open */
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal box */
+.modal-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-30px);
+    transition: transform var(--transition-normal);
+}
+
+/* When modal is open - slide down into place */
+.modal-overlay.open .modal-box {
+    transform: translateY(0);
+}
+
+/* Close button */
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--gray-light);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color var(--transition-normal);
+    padding: 0;
+}
+
+.modal-close:hover {
+    color: var(--red);
+}
+
+/* Modal header */
+.modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.modal-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.modal-logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.modal-header h3 {
+    font-size: var(--text-xl);
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.modal-header p {
+    color: var(--gray-light);
+    font-size: var(--text-sm);
+    margin: 0;
+}
+
+/* Form container */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+/* Form groups */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+.required {
+    color: var(--red);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: var(--bg-secondary);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 1rem;
+    color: var(--white);
+    font-size: var(--text-base);
+    font-family: var(--font-main);
+    transition: border-color var(--transition-normal);
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--yellow);
+    outline: none;
+}
+
+.form-group select option {
+    background: var(--bg-card);
+    color: var(--white);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit button */
+.modal-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: var(--text-md);
+    margin-top: 0.5rem;
+}
+
+/* Thank you message - hidden by default */
+.modal-thankyou {
+    display: none;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.modal-thankyou.show {
+    display: block;
+}
+
+.thankyou-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.modal-thankyou h3 {
+    font-size: var(--text-2xl);
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.modal-thankyou p {
+    color: var(--gray-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+/* Scrollbar inside modal */
+.modal-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-box::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+    background: var(--blue-light);
+    border-radius: var(--radius-full);
+}
+
+/* Modal Responsive */
+@media (max-width: 480px) {
+    .modal-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .modal-header h3 {
+        font-size: var(--text-lg);
+    }
+
+    .modal-form {
+        padding: 1rem;
+    }
+}

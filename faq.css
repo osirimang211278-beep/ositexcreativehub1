@@ -1,0 +1,239 @@
+/* ================================================
+   OSITEX CREATIVE HUB - FAQ Section Styles
+   faq.css
+   ================================================ */
+
+
+/* ------------------------------------------------
+   1. FAQ SECTION CONTAINER
+------------------------------------------------ */
+.faq {
+    position: relative;
+    background-color: var(--bg-primary);
+    padding: var(--spacing-xl) 0;
+    border-top: 3px solid var(--red);
+}
+
+
+/* ------------------------------------------------
+   2. FAQ HEADER
+------------------------------------------------ */
+.faq-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+
+/* ------------------------------------------------
+   3. FAQ CONTAINER
+------------------------------------------------ */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ------------------------------------------------
+   4. FAQ ITEM
+------------------------------------------------ */
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-normal),
+                box-shadow var(--transition-normal);
+}
+
+.faq-item:hover {
+    border-color: var(--red);
+}
+
+/* Open state */
+.faq-item.open {
+    border-color: var(--red);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* ------------------------------------------------
+   5. FAQ QUESTION BUTTON
+------------------------------------------------ */
+.faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition-normal);
+}
+
+.faq-question:hover {
+    background: rgba(204, 0, 0, 0.05);
+}
+
+/* Open state question */
+.faq-item.open .faq-question {
+    background: rgba(204, 0, 0, 0.08);
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.faq-question span:first-child {
+    color: var(--white);
+    font-size: var(--text-base);
+    font-weight: 600;
+    font-family: var(--font-main);
+    line-height: 1.5;
+    flex: 1;
+}
+
+/* Plus / X icon */
+.faq-icon {
+    color: var(--yellow);
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 204, 0, 0.1);
+    border: 1px solid rgba(255, 204, 0, 0.2);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+}
+
+/* Icon rotates when open */
+.faq-item.open .faq-icon {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+    transform: rotate(45deg);
+}
+
+/* ------------------------------------------------
+   6. FAQ ANSWER
+------------------------------------------------ */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+    color: var(--gray-light);
+    font-size: var(--text-base);
+    line-height: 1.8;
+    padding: 1.25rem 1.5rem;
+    margin: 0;
+}
+
+
+/* ------------------------------------------------
+   7. FAQ BOTTOM CTA
+------------------------------------------------ */
+.faq-cta {
+    text-align: center;
+    padding: var(--spacing-lg) 0 var(--spacing-sm);
+    border-top: 1px solid var(--gray-border);
+    margin-top: var(--spacing-md);
+}
+
+.faq-cta p {
+    color: var(--gray-light);
+    font-size: var(--text-md);
+    margin-bottom: 1.5rem;
+}
+
+
+/* ------------------------------------------------
+   8. RESPONSIVE - Tablets (max 1024px)
+------------------------------------------------ */
+@media (max-width: 1024px) {
+    .faq-container {
+        max-width: 700px;
+    }
+}
+
+/* ------------------------------------------------
+   9. RESPONSIVE - Mobile (max 768px)
+------------------------------------------------ */
+@media (max-width: 768px) {
+    .faq {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .faq-container {
+        max-width: 100%;
+    }
+
+    .faq-question {
+        padding: 1rem 1.25rem;
+    }
+
+    .faq-question span:first-child {
+        font-size: var(--text-sm);
+    }
+
+    .faq-answer p {
+        font-size: var(--text-sm);
+        padding: 1rem 1.25rem;
+    }
+
+    .faq-cta p {
+        font-size: var(--text-base);
+    }
+}
+
+
+/* ------------------------------------------------
+   10. RESPONSIVE - Small phones (max 480px)
+------------------------------------------------ */
+@media (max-width: 480px) {
+    .faq-question {
+        padding: 0.9rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .faq-question span:first-child {
+        font-size: 0.85rem;
+    }
+
+    .faq-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 1.2rem;
+    }
+
+    .faq-answer p {
+        font-size: 0.85rem;
+        padding: 0.9rem 1rem;
+    }
+}
+
+
+/* ------------------------------------------------
+   11. RESPONSIVE - Very small phones (max 360px)
+------------------------------------------------ */
+@media (max-width: 360px) {
+    .faq-question span:first-child {
+        font-size: 0.8rem;
+    }
+
+    .faq-answer p {
+        font-size: 0.8rem;
+    }
+
+    .faq-cta p {
+        font-size: var(--text-sm);
+    }
+}
