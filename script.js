@@ -6,14 +6,14 @@
 // ------------------------------------------------
 // 1. INTRO ANIMATION SEQUENCE
 // ------------------------------------------------
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
 
-    const overlay     = document.getElementById('introOverlay');
-    const flare       = document.getElementById('introFlare');
-    const welcome     = document.getElementById('introWelcome');
-    const company     = document.getElementById('introCompany');
-    const typingEl    = document.getElementById('introTyping');
-    const sub         = document.getElementById('introSub');
+    const overlay = document.getElementById('introOverlay');
+    const flare = document.getElementById('introFlare');
+    const welcome = document.getElementById('introWelcome');
+    const company = document.getElementById('introCompany');
+    const typingEl = document.getElementById('introTyping');
+    const sub = document.getElementById('introSub');
     const companyName = 'OSITEX CREATIVE HUB';
 
     // STEP 1 — Logo fades in via CSS automatically at 0.3s
@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // STEP 2 — Golden flare shoots across at 1.2s
     setTimeout(() => {
         flare.classList.add('animate');
-    }, 1200);
+    }, 800);
 
     // STEP 3 — Welcome To fades in at 2.2s
     setTimeout(() => {
         welcome.classList.add('show');
-    }, 2200);
+    }, 1500);
 
     // STEP 4 — Company name types out at 2.8s
     setTimeout(() => {
@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         typeLetter();
-    }, 2800);
+    }, 1900);
 
     // STEP 5 — Subheading fades in at 4.2s
     setTimeout(() => {
         sub.classList.add('show');
-    }, 4200);
+    }, 3000);
 
     // STEP 6 — Intro slides up at 5.5s
     setTimeout(() => {
@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
             overlay.classList.add('hidden');
         }, 800);
-    }, 5500);
+    }, 3800);
 
 
     // ------------------------------------------------
     // 2. HAMBURGER MENU
     // ------------------------------------------------
-    const navLinks  = document.querySelector('.nav-links');
+    const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
 
     // Close menu when a nav link is clicked
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Highlight active nav link on scroll
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section[id]');
-        const links    = document.querySelectorAll('.nav-links a');
-        let current    = '';
+        const links = document.querySelectorAll('.nav-links a');
+        let current = '';
 
         sections.forEach(section => {
             if (window.scrollY >= section.offsetTop - 100) {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 3. GET STARTED MODAL
     // ------------------------------------------------
     const modal = document.getElementById('getStartedModal');
-    const form  = document.getElementById('getStartedForm');
+    const form = document.getElementById('getStartedForm');
 
     // Close modal when clicking outside the box
     if (modal) {
@@ -119,23 +119,23 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = new FormData(form);
 
             fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    form.style.display = 'none';
-                    document.getElementById('modalThankyou').classList.add('show');
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            })
-            .catch(error => {
-                alert('Something went wrong. Please check your connection and try again.');
-            });
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        document.getElementById('modalThankyou').classList.add('show');
+                    } else {
+                        alert('Something went wrong. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    alert('Something went wrong. Please check your connection and try again.');
+                });
         });
     }
 
@@ -155,25 +155,6 @@ document.addEventListener('DOMContentLoaded', function () {
             filterPortfolio(this.getAttribute('data-filter'));
         });
     });
-
-
-    // ------------------------------------------------
-    // 5. TESTIMONIALS SLIDER SETUP
-    // ------------------------------------------------
-    generateDots();
-
-    // Auto slide every 5 seconds
-    let autoSlide = setInterval(() => slideTestimonials(1), 5000);
-
-    // Pause on hover
-    const slider = document.getElementById('testimonialsSlider');
-    if (slider) {
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
-        slider.addEventListener('mouseleave', () => {
-            autoSlide = setInterval(() => slideTestimonials(1), 5000);
-        });
-    }
-
 
     // ------------------------------------------------
     // 6. STATS COUNTER - triggers when visible
@@ -216,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Hamburger toggle
 function toggleMenu() {
-    const navLinks  = document.querySelector('.nav-links');
+    const navLinks = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger');
 
     if (navLinks && hamburger) {
@@ -238,8 +219,8 @@ function openModal() {
 
 // Close modal
 function closeModal() {
-    const modal    = document.getElementById('getStartedModal');
-    const form     = document.getElementById('getStartedForm');
+    const modal = document.getElementById('getStartedModal');
+    const form = document.getElementById('getStartedForm');
     const thankyou = document.getElementById('modalThankyou');
 
     if (modal) {
@@ -258,9 +239,9 @@ function closeModal() {
 // FAQ Accordion toggle
 function toggleFaq(button) {
     const faqItem = button.parentElement;
-    const answer  = faqItem.querySelector('.faq-answer');
-    const icon    = button.querySelector('.faq-icon');
-    const isOpen  = faqItem.classList.contains('open');
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = button.querySelector('.faq-icon');
+    const isOpen = faqItem.classList.contains('open');
 
     // Close all open FAQ items first
     document.querySelectorAll('.faq-item.open').forEach(item => {
@@ -279,7 +260,7 @@ function toggleFaq(button) {
 
 // Portfolio filter
 function filterPortfolio(category) {
-    const cards   = document.querySelectorAll('.portfolio-card');
+    const cards = document.querySelectorAll('.portfolio-card');
     const buttons = document.querySelectorAll('.filter-btn');
 
     buttons.forEach(btn => {
@@ -307,7 +288,7 @@ let currentSlide = 0;
 function slideTestimonials(direction) {
     const track = document.getElementById('testimonialsTrack');
     const cards = document.querySelectorAll('.testimonial-card');
-    const dots  = document.querySelectorAll('.dot');
+    const dots = document.querySelectorAll('.dot');
     const total = cards.length;
 
     currentSlide += direction;
@@ -327,7 +308,7 @@ function slideTestimonials(direction) {
 // Generate slider dots
 function generateDots() {
     const dotsContainer = document.getElementById('sliderDots');
-    const cards         = document.querySelectorAll('.testimonial-card');
+    const cards = document.querySelectorAll('.testimonial-card');
 
     if (!dotsContainer) return;
 
@@ -349,10 +330,10 @@ function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
 
     statNumbers.forEach(stat => {
-        const target   = parseInt(stat.getAttribute('data-target'));
+        const target = parseInt(stat.getAttribute('data-target'));
         const duration = 2000;
-        const step     = target / (duration / 16);
-        let current    = 0;
+        const step = target / (duration / 16);
+        let current = 0;
 
         const counter = setInterval(() => {
             current += step;

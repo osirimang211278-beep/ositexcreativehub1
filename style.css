@@ -1,484 +1,532 @@
-/* ================================================
+                    /* ================================================
    OSITEX CREATIVE HUB - Global Stylesheet
    style.css
    ================================================ */
-
-
-/* ------------------------------------------------
+                    /* ------------------------------------------------
    1. CSS VARIABLES (Brand Colors & Fonts)
 ------------------------------------------------ */
-
-:root {
-    /* Brand Colors */
-    --blue: #001a4d;
-    /* Primary - Navy Blue */
-    --blue-light: #0033cc;
-    /* Lighter Blue for gradients */
-    --red: #cc0000;
-    /* Secondary - Brand Red */
-    --red-light: #ff3333;
-    /* Lighter Red for hovers */
-    --gray: #cccccc;
-    /* Body Text - Light Gray for dark bg */
-    --gray-light: #aaaaaa;
-    /* Subtle Text */
-    --gray-border: #0d2158;
-    /* Borders and dividers */
-    --yellow: #ffcc00;
-    /* Accent - Touch of Yellow */
-    --white: #ffffff;
-    /* Pure White */
-    /* Background Colors */
-    --bg-primary: #010d26;
-    /* Main dark navy background */
-    --bg-secondary: #021033;
-    /* Slightly lighter navy for sections */
-    --bg-card: #051540;
-    /* Card and box backgrounds */
-    /* Typography */
-    --font-main: 'Poppins', sans-serif;
-    /* Font Sizes */
-    --text-xs: 0.75rem;
-    /* 12px */
-    --text-sm: 0.875rem;
-    /* 14px */
-    --text-base: 1rem;
-    /* 16px */
-    --text-md: 1.125rem;
-    /* 18px */
-    --text-lg: 1.25rem;
-    /* 20px */
-    --text-xl: 1.5rem;
-    /* 24px */
-    --text-2xl: 2rem;
-    /* 32px */
-    --text-3xl: 2.5rem;
-    /* 40px */
-    --text-4xl: 3.5rem;
-    /* 56px */
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    /* 8px */
-    --spacing-sm: 1rem;
-    /* 16px */
-    --spacing-md: 2rem;
-    /* 32px */
-    --spacing-lg: 4rem;
-    /* 64px */
-    --spacing-xl: 6rem;
-    /* 96px */
-    /* Border Radius */
-    --radius-sm: 5px;
-    --radius-md: 10px;
-    --radius-lg: 15px;
-    --radius-full: 50%;
-    /* Shadows */
-    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 5px 25px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4);
-    --shadow-blue: 0 5px 25px rgba(0, 26, 77, 0.5);
-    --shadow-red: 0 5px 25px rgba(204, 0, 0, 0.3);
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-normal: 0.3s ease;
-    --transition-slow: 0.5s ease;
-}
-
-
-/* ------------------------------------------------
+                    
+                     :root {
+                        /* Brand Colors */
+                        --blue: #001a4d;
+                        /* Primary - Navy Blue */
+                        --blue-light: #0033cc;
+                        /* Lighter Blue for gradients */
+                        --red: #cc0000;
+                        /* Secondary - Brand Red */
+                        --red-light: #ff3333;
+                        /* Lighter Red for hovers */
+                        --gray: #cccccc;
+                        /* Body Text - Light Gray for dark bg */
+                        --gray-light: #aaaaaa;
+                        /* Subtle Text */
+                        --gray-border: #0d2158;
+                        /* Borders and dividers */
+                        --yellow: #ffcc00;
+                        /* Accent - Touch of Yellow */
+                        --white: #ffffff;
+                        /* Pure White */
+                        /* Background Colors */
+                        --bg-primary: #010d26;
+                        /* Main dark navy background */
+                        --bg-secondary: #021033;
+                        /* Slightly lighter navy for sections */
+                        --bg-card: #051540;
+                        /* Card and box backgrounds */
+                        /* Typography */
+                        --font-main: 'Poppins', sans-serif;
+                        /* Font Sizes */
+                        --text-xs: 0.75rem;
+                        /* 12px */
+                        --text-sm: 0.875rem;
+                        /* 14px */
+                        --text-base: 1rem;
+                        /* 16px */
+                        --text-md: 1.125rem;
+                        /* 18px */
+                        --text-lg: 1.25rem;
+                        /* 20px */
+                        --text-xl: 1.5rem;
+                        /* 24px */
+                        --text-2xl: 2rem;
+                        /* 32px */
+                        --text-3xl: 2.5rem;
+                        /* 40px */
+                        --text-4xl: 3.5rem;
+                        /* 56px */
+                        /* Spacing */
+                        --spacing-xs: 0.5rem;
+                        /* 8px */
+                        --spacing-sm: 1rem;
+                        /* 16px */
+                        --spacing-md: 2rem;
+                        /* 32px */
+                        --spacing-lg: 4rem;
+                        /* 64px */
+                        --spacing-xl: 6rem;
+                        /* 96px */
+                        /* Border Radius */
+                        --radius-sm: 5px;
+                        --radius-md: 10px;
+                        --radius-lg: 15px;
+                        --radius-full: 50%;
+                        /* Shadows */
+                        --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
+                        --shadow-md: 0 5px 25px rgba(0, 0, 0, 0.3);
+                        --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4);
+                        --shadow-blue: 0 5px 25px rgba(0, 26, 77, 0.5);
+                        --shadow-red: 0 5px 25px rgba(204, 0, 0, 0.3);
+                        /* Transitions */
+                        --transition-fast: 0.2s ease;
+                        --transition-normal: 0.3s ease;
+                        --transition-slow: 0.5s ease;
+                    }
+                    /* ------------------------------------------------
    2. RESET & BASE STYLES
 ------------------------------------------------ */
-
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    max-width: 100%;
-    font-size: 16px;
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    font-family: var(--font-main);
-    font-size: var(--text-base);
-    color: var(--gray);
-    background-color: var(--bg-primary);
-    line-height: 1.7;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-
-/* ------------------------------------------------
+                    
+                    *,
+                    *::before,
+                    *::after {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    
+                    html {
+                        width: 100%;
+                        max-width: 100%;
+                        font-size: 16px;
+                        scroll-behavior: smooth;
+                        -webkit-text-size-adjust: 100%;
+                        text-size-adjust: 100%;
+                        overflow-x: hidden;
+                    }
+                    
+                    body {
+                        font-family: var(--font-main);
+                        font-size: var(--text-base);
+                        color: var(--gray);
+                        background-color: var(--bg-primary);
+                        line-height: 1.7;
+                        width: 100%;
+                        max-width: 100%;
+                        overflow-x: hidden;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                    }
+                    /* ------------------------------------------------
    3. TYPOGRAPHY
 ------------------------------------------------ */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-main);
-    color: var(--white);
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: var(--spacing-sm);
-}
-
-h1 {
-    font-size: var(--text-4xl);
-}
-
-h2 {
-    font-size: var(--text-3xl);
-}
-
-h3 {
-    font-size: var(--text-xl);
-}
-
-h4 {
-    font-size: var(--text-lg);
-}
-
-h5 {
-    font-size: var(--text-md);
-}
-
-h6 {
-    font-size: var(--text-base);
-}
-
-p {
-    color: var(--gray-light);
-    font-size: var(--text-base);
-    line-height: 1.8;
-    margin-bottom: var(--spacing-sm);
-}
-
-a {
-    color: var(--yellow);
-    text-decoration: none;
-    transition: color var(--transition-normal);
-}
-
-a:hover {
-    color: var(--white);
-}
-
-ul,
-ol {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-button {
-    cursor: pointer;
-    font-family: var(--font-main);
-    border: none;
-    outline: none;
-}
-
-input,
-textarea,
-select {
-    font-family: var(--font-main);
-    font-size: var(--text-base);
-    outline: none;
-}
-
-
-/* ------------------------------------------------
+                    
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        font-family: var(--font-main);
+                        color: var(--white);
+                        font-weight: 700;
+                        line-height: 1.3;
+                        margin-bottom: var(--spacing-sm);
+                    }
+                    
+                    h1 {
+                        font-size: var(--text-4xl);
+                    }
+                    
+                    h2 {
+                        font-size: var(--text-3xl);
+                    }
+                    
+                    h3 {
+                        font-size: var(--text-xl);
+                    }
+                    
+                    h4 {
+                        font-size: var(--text-lg);
+                    }
+                    
+                    h5 {
+                        font-size: var(--text-md);
+                    }
+                    
+                    h6 {
+                        font-size: var(--text-base);
+                    }
+                    
+                    p {
+                        color: var(--gray-light);
+                        font-size: var(--text-base);
+                        line-height: 1.8;
+                        margin-bottom: var(--spacing-sm);
+                    }
+                    
+                    a {
+                        color: var(--yellow);
+                        text-decoration: none;
+                        transition: color var(--transition-normal);
+                    }
+                    
+                    a:hover {
+                        color: var(--white);
+                    }
+                    
+                    ul,
+                    ol {
+                        list-style: none;
+                    }
+                    
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+                    
+                    button {
+                        cursor: pointer;
+                        font-family: var(--font-main);
+                        border: none;
+                        outline: none;
+                    }
+                    
+                    input,
+                    textarea,
+                    select {
+                        font-family: var(--font-main);
+                        font-size: var(--text-base);
+                        outline: none;
+                    }
+                    /* ------------------------------------------------
    4. REUSABLE UTILITY CLASSES
 ------------------------------------------------ */
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
-
-.section {
-    padding: var(--spacing-xl) 0;
-}
-
-.section-title {
-    font-size: var(--text-3xl);
-    color: var(--white);
-    text-align: center;
-    font-weight: 800;
-    margin-bottom: var(--spacing-xs);
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--yellow);
-    margin: 0.75rem auto 0;
-    border-radius: var(--radius-full);
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--gray-light);
-    font-size: var(--text-md);
-    margin-bottom: var(--spacing-lg);
-}
-
-
-/* Text colors */
-
-.text-yellow {
-    color: var(--yellow);
-}
-
-.text-red {
-    color: var(--red);
-}
-
-.text-blue {
-    color: var(--blue-light);
-}
-
-.text-white {
-    color: var(--white);
-}
-
-.text-gray {
-    color: var(--gray-light);
-}
-
-
-/* Text alignment */
-
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-
-/* Flex utilities */
-
-.flex {
-    display: flex;
-}
-
-.flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.flex-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.gap-sm {
-    gap: var(--spacing-sm);
-}
-
-.gap-md {
-    gap: var(--spacing-md);
-}
-
-
-/* ------------------------------------------------
+                    
+                    .container {
+                        width: 100%;
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        padding: 0 var(--spacing-md);
+                    }
+                    
+                    .section {
+                        padding: var(--spacing-xl) 0;
+                    }
+                    
+                    .section-title {
+                        font-size: var(--text-3xl);
+                        color: var(--white);
+                        text-align: center;
+                        font-weight: 800;
+                        margin-bottom: var(--spacing-xs);
+                        position: relative;
+                    }
+                    
+                    .section-title::after {
+                        content: '';
+                        display: block;
+                        width: 60px;
+                        height: 4px;
+                        background: var(--yellow);
+                        margin: 0.75rem auto 0;
+                        border-radius: var(--radius-full);
+                    }
+                    
+                    .section-subtitle {
+                        text-align: center;
+                        color: var(--gray-light);
+                        font-size: var(--text-md);
+                        margin-bottom: var(--spacing-lg);
+                    }
+                    /* Text colors */
+                    
+                    .text-yellow {
+                        color: var(--yellow);
+                    }
+                    
+                    .text-red {
+                        color: var(--red);
+                    }
+                    
+                    .text-blue {
+                        color: var(--blue-light);
+                    }
+                    
+                    .text-white {
+                        color: var(--white);
+                    }
+                    
+                    .text-gray {
+                        color: var(--gray-light);
+                    }
+                    /* Text alignment */
+                    
+                    .text-center {
+                        text-align: center;
+                    }
+                    
+                    .text-left {
+                        text-align: left;
+                    }
+                    
+                    .text-right {
+                        text-align: right;
+                    }
+                    /* Flex utilities */
+                    
+                    .flex {
+                        display: flex;
+                    }
+                    
+                    .flex-center {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    
+                    .flex-between {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                    
+                    .flex-wrap {
+                        flex-wrap: wrap;
+                    }
+                    
+                    .gap-sm {
+                        gap: var(--spacing-sm);
+                    }
+                    
+                    .gap-md {
+                        gap: var(--spacing-md);
+                    }
+                    /* ------------------------------------------------
    5. BUTTONS
 ------------------------------------------------ */
-
-.btn-primary {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: var(--red);
-    color: var(--white);
-    font-size: var(--text-base);
-    font-weight: 600;
-    border-radius: var(--radius-sm);
-    border: 2px solid var(--red);
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    text-align: center;
-}
-
-.btn-primary:hover {
-    background: var(--red-light);
-    border-color: var(--red-light);
-    color: var(--white);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-red);
-}
-
-.btn-outline {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: transparent;
-    color: var(--white);
-    font-size: var(--text-base);
-    font-weight: 600;
-    border-radius: var(--radius-sm);
-    border: 2px solid var(--white);
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    text-align: center;
-}
-
-.btn-outline:hover {
-    background: var(--white);
-    color: var(--blue);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.btn-yellow {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    background: var(--yellow);
-    color: var(--blue);
-    font-size: var(--text-base);
-    font-weight: 700;
-    border-radius: var(--radius-sm);
-    border: 2px solid var(--yellow);
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    text-align: center;
-}
-
-.btn-yellow:hover {
-    background: transparent;
-    color: var(--yellow);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-
-/* ------------------------------------------------
+                    /* Primary Button - Red with gradient */
+                    
+                    .btn-primary {
+                        display: inline-block;
+                        padding: 0.8rem 2rem;
+                        background: linear-gradient(135deg, var(--red) 0%, #ff2222 100%);
+                        color: var(--white);
+                        font-size: var(--text-base);
+                        font-weight: 600;
+                        border-radius: 50px;
+                        border: 2px solid transparent;
+                        cursor: pointer;
+                        transition: all var(--transition-normal);
+                        text-align: center;
+                        font-family: var(--font-main);
+                        letter-spacing: 0.5px;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    /* Shine sweep effect on hover */
+                    
+                    .btn-primary::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient( 120deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+                        transition: left 0.5s ease;
+                    }
+                    
+                    .btn-primary:hover::before {
+                        left: 100%;
+                    }
+                    
+                    .btn-primary:hover {
+                        background: linear-gradient(135deg, #ff2222 0%, var(--red) 100%);
+                        color: var(--white);
+                        transform: translateY(-3px);
+                        box-shadow: 0 0 15px rgba(204, 0, 0, 0.5), 0 0 30px rgba(204, 0, 0, 0.3), 0 0 60px rgba(204, 0, 0, 0.1);
+                    }
+                    
+                    .btn-primary:active {
+                        transform: translateY(-1px);
+                        box-shadow: 0 0 8px rgba(204, 0, 0, 0.4);
+                    }
+                    /* Outline Button - Transparent with white border */
+                    
+                    .btn-outline {
+                        display: inline-block;
+                        padding: 0.8rem 2rem;
+                        background: transparent;
+                        color: var(--white);
+                        font-size: var(--text-base);
+                        font-weight: 600;
+                        border-radius: 50px;
+                        border: 2px solid var(--white);
+                        cursor: pointer;
+                        transition: all var(--transition-normal);
+                        text-align: center;
+                        font-family: var(--font-main);
+                        letter-spacing: 0.5px;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    
+                    .btn-outline::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient( 120deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+                        transition: left 0.5s ease;
+                    }
+                    
+                    .btn-outline:hover::before {
+                        left: 100%;
+                    }
+                    
+                    .btn-outline:hover {
+                        background: var(--white);
+                        color: var(--blue);
+                        transform: translateY(-3px);
+                        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.05);
+                    }
+                    
+                    .btn-outline:active {
+                        transform: translateY(-1px);
+                    }
+                    /* Yellow Button - Yellow with gradient */
+                    
+                    .btn-yellow {
+                        display: inline-block;
+                        padding: 0.8rem 2rem;
+                        background: linear-gradient(135deg, var(--yellow) 0%, #ffd700 100%);
+                        color: var(--blue);
+                        font-size: var(--text-base);
+                        font-weight: 700;
+                        border-radius: 50px;
+                        border: 2px solid transparent;
+                        cursor: pointer;
+                        transition: all var(--transition-normal);
+                        text-align: center;
+                        font-family: var(--font-main);
+                        letter-spacing: 0.5px;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    
+                    .btn-yellow::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient( 120deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+                        transition: left 0.5s ease;
+                    }
+                    
+                    .btn-yellow:hover::before {
+                        left: 100%;
+                    }
+                    
+                    .btn-yellow:hover {
+                        background: linear-gradient(135deg, #ffd700 0%, var(--yellow) 100%);
+                        color: var(--blue);
+                        transform: translateY(-3px);
+                        box-shadow: 0 0 15px rgba(255, 204, 0, 0.6), 0 0 30px rgba(255, 204, 0, 0.3), 0 0 60px rgba(255, 204, 0, 0.1);
+                    }
+                    
+                    .btn-yellow:active {
+                        transform: translateY(-1px);
+                        box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+                    }
+                    /* ------------------------------------------------
    6. CARDS
 ------------------------------------------------ */
-
-.card {
-    background: var(--bg-card);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--gray-border);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-
-/* ------------------------------------------------
+                    
+                    .card {
+                        background: var(--bg-card);
+                        border-radius: var(--radius-md);
+                        padding: var(--spacing-md);
+                        box-shadow: var(--shadow-md);
+                        border: 1px solid var(--gray-border);
+                        transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+                    }
+                    
+                    .card:hover {
+                        transform: translateY(-8px);
+                        box-shadow: var(--shadow-lg);
+                    }
+                    /* ------------------------------------------------
    7. DIVIDER
 ------------------------------------------------ */
-
-.divider {
-    width: 100%;
-    height: 1px;
-    background: var(--gray-border);
-    margin: var(--spacing-md) 0;
-}
-
-
-/* ------------------------------------------------
+                    
+                    .divider {
+                        width: 100%;
+                        height: 1px;
+                        background: var(--gray-border);
+                        margin: var(--spacing-md) 0;
+                    }
+                    /* ------------------------------------------------
    8. SCROLLBAR STYLING
 ------------------------------------------------ */
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--blue-light);
-    border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--red);
-}
-
-
-/* ------------------------------------------------
+                    
+                     ::-webkit-scrollbar {
+                        width: 8px;
+                    }
+                    
+                     ::-webkit-scrollbar-track {
+                        background: var(--bg-primary);
+                    }
+                    
+                     ::-webkit-scrollbar-thumb {
+                        background: var(--blue-light);
+                        border-radius: var(--radius-full);
+                    }
+                    
+                     ::-webkit-scrollbar-thumb:hover {
+                        background: var(--red);
+                    }
+                    /* ------------------------------------------------
    9. SELECTION COLOR
 ------------------------------------------------ */
-
-::selection {
-    background: var(--red);
-    color: var(--white);
-}
-
-
-/* ------------------------------------------------
+                    
+                     ::selection {
+                        background: var(--red);
+                        color: var(--white);
+                    }
+                    /* ------------------------------------------------
    10. RESPONSIVE FONT SCALING
 ------------------------------------------------ */
-
-@media (max-width: 1024px) {
-     :root {
-        --text-4xl: 3rem;
-        --text-3xl: 2.2rem;
-    }
-}
-
-@media (max-width: 768px) {
-     :root {
-        --text-4xl: 2.5rem;
-        --text-3xl: 2rem;
-        --text-2xl: 1.75rem;
-    }
-    .container {
-        padding: 0 var(--spacing-sm);
-    }
-    .section {
-        padding: var(--spacing-lg) 0;
-    }
-}
-
-@media (max-width: 480px) {
-     :root {
-        --text-4xl: 2rem;
-        --text-3xl: 1.75rem;
-        --text-2xl: 1.5rem;
-        --text-xl: 1.25rem;
-    }
-}
+                    
+                    @media (max-width: 1024px) {
+                         :root {
+                            --text-4xl: 3rem;
+                            --text-3xl: 2.2rem;
+                        }
+                    }
+                    
+                    @media (max-width: 768px) {
+                         :root {
+                            --text-4xl: 2.5rem;
+                            --text-3xl: 2rem;
+                            --text-2xl: 1.75rem;
+                        }
+                        .container {
+                            padding: 0 var(--spacing-sm);
+                        }
+                        .section {
+                            padding: var(--spacing-lg) 0;
+                        }
+                    }
+                    
+                    @media (max-width: 480px) {
+                         :root {
+                            --text-4xl: 2rem;
+                            --text-3xl: 1.75rem;
+                            --text-2xl: 1.5rem;
+                            --text-xl: 1.25rem;
+                        }
+                    }
