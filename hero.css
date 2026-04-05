@@ -17,7 +17,7 @@
     align-items: center;
     background-color: var(--bg-primary);
     overflow: hidden;
-    padding: 8rem 0 4rem;
+    padding: 5rem 0 2rem;
 }
 
 
@@ -148,7 +148,7 @@
     border: 1px solid rgba(0, 51, 204, 0.3);
     padding: 0.4rem 1rem;
     border-radius: 50px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .hero-tag span {
@@ -189,7 +189,7 @@
     font-weight: 800;
     color: var(--white);
     line-height: 1.2;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 
@@ -206,8 +206,8 @@
 .hero-desc {
     font-size: var(--text-md);
     color: var(--gray-light);
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
     max-width: 500px;
 }
 
@@ -218,7 +218,7 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 1.25rem;
 }
 
 
@@ -531,34 +531,34 @@
 
 @media (max-width: 1024px) {
     .hero {
-        padding: 7rem 0 4rem;
+        padding: 4rem 0 2rem;
     }
     .hero-wrapper {
         gap: 2rem;
     }
     .hero-logo-container {
-        width: 320px;
-        height: 320px;
+        width: 300px;
+        height: 300px;
     }
     .ring-outer {
-        width: 320px;
-        height: 320px;
+        width: 300px;
+        height: 300px;
     }
     .ring-middle {
-        width: 250px;
-        height: 250px;
+        width: 230px;
+        height: 230px;
     }
     .ring-inner {
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
     }
     .hero-logo-box {
-        width: 130px;
-        height: 130px;
+        width: 120px;
+        height: 120px;
     }
     .hero-logo-img {
-        width: 80px;
-        height: 80px;
+        width: 75px;
+        height: 75px;
     }
 }
 
@@ -569,7 +569,7 @@
 
 @media (max-width: 768px) {
     .hero {
-        padding: 6rem 0 5rem;
+        padding: 4rem 0 3rem;
         width: 100%;
         max-width: 100%;
         overflow-x: hidden;
@@ -577,7 +577,7 @@
     .hero-wrapper {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
+        gap: 1.5rem;
         align-items: center;
         justify-content: center;
         width: 100%;
@@ -609,36 +609,38 @@
     .hero-desc {
         font-size: var(--text-base);
         text-align: center;
+        margin-bottom: 1rem;
     }
     .hero-buttons {
         justify-content: center;
+        margin-bottom: 1rem;
     }
     .hero-socials {
         justify-content: center;
     }
     .hero-logo-container {
-        width: 280px;
-        height: 280px;
+        width: 250px;
+        height: 250px;
     }
     .ring-outer {
-        width: 280px;
-        height: 280px;
+        width: 250px;
+        height: 250px;
     }
     .ring-middle {
-        width: 210px;
-        height: 210px;
+        width: 190px;
+        height: 190px;
     }
     .ring-inner {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
     .hero-logo-box {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
     }
     .hero-logo-img {
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
     }
     /* Reposition badges for mobile */
     .badge-1 {
@@ -673,7 +675,7 @@
 
 @media (max-width: 480px) {
     .hero {
-        padding: 5rem 0 4rem;
+        padding: 3.5rem 0 2.5rem;
     }
     .hero-title {
         font-size: var(--text-2xl);
@@ -682,29 +684,32 @@
         font-size: 0.7rem;
     }
     .hero-logo-container {
-        width: 240px;
-        height: 240px;
+        width: 200px;
+        /* REDUCED from 240px */
+        height: 200px;
         max-width: 100%;
     }
     .ring-outer {
-        width: 240px;
-        height: 240px;
+        width: 200px;
+        height: 200px;
     }
     .ring-middle {
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
     }
     .ring-inner {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
     .hero-logo-box {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        /* REDUCED from 90px */
+        height: 80px;
     }
     .hero-logo-img {
-        width: 55px;
-        height: 55px;
+        width: 50px;
+        /* REDUCED from 55px */
+        height: 50px;
     }
     .hero-badge {
         padding: 0.4rem 0.75rem;
@@ -856,21 +861,18 @@
     animation: rotateSlow 12s linear infinite reverse;
 }
 
+
 /* ------------------------------------------------
    GOLDEN FLARE LIGHT
 ------------------------------------------------ */
+
 .intro-flare {
     position: absolute;
     top: -100px;
     left: -100px;
     width: 300px;
     height: 300px;
-    background: radial-gradient(
-        circle,
-        rgba(255, 204, 0, 0.4) 0%,
-        rgba(255, 204, 0, 0.1) 40%,
-        transparent 70%
-    );
+    background: radial-gradient( circle, rgba(255, 204, 0, 0.4) 0%, rgba(255, 204, 0, 0.1) 40%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
     opacity: 0;
@@ -903,9 +905,11 @@
     }
 }
 
+
 /* ------------------------------------------------
    INTRO CONTENT
 ------------------------------------------------ */
+
 .intro-content {
     position: relative;
     z-index: 2;
@@ -917,7 +921,9 @@
     gap: 1rem;
 }
 
+
 /* Logo */
+
 .intro-logo {
     opacity: 0;
     transform: scale(0.5);
@@ -945,7 +951,9 @@
     }
 }
 
+
 /* Welcome To text */
+
 .intro-welcome {
     opacity: 0;
     transform: translateY(20px);
@@ -964,7 +972,9 @@
     font-family: var(--font-main);
 }
 
+
 /* Company name typing */
+
 .intro-company {
     opacity: 0;
     min-height: 60px;
@@ -987,7 +997,9 @@
     font-family: var(--font-main);
 }
 
+
 /* Blinking cursor */
+
 .intro-cursor {
     color: var(--yellow);
     font-size: var(--text-3xl);
@@ -996,11 +1008,18 @@
 }
 
 @keyframes cursorBlink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
+
 /* Subheading */
+
 .intro-sub {
     opacity: 0;
     transform: translateY(20px);
@@ -1019,7 +1038,9 @@
     margin: 0;
 }
 
+
 /* Shared fade in up animation */
+
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -1031,28 +1052,26 @@
     }
 }
 
+
 /* ------------------------------------------------
    RESPONSIVE
 ------------------------------------------------ */
+
 @media (max-width: 768px) {
     .intro-logo img {
         width: 90px;
         height: 90px;
     }
-
     #introTyping {
         font-size: var(--text-2xl);
     }
-
     .intro-cursor {
         font-size: var(--text-2xl);
     }
-
     .intro-welcome span {
         font-size: var(--text-base);
         letter-spacing: 3px;
     }
-
     .intro-sub p {
         font-size: var(--text-base);
         letter-spacing: 1px;
@@ -1064,32 +1083,31 @@
         width: 70px;
         height: 70px;
     }
-
     #introTyping {
         font-size: var(--text-xl);
         letter-spacing: 2px;
     }
-
     .intro-cursor {
         font-size: var(--text-xl);
     }
-
     .intro-welcome span {
         font-size: var(--text-sm);
         letter-spacing: 2px;
     }
-
     .intro-sub p {
         font-size: var(--text-sm);
     }
 }
+
 
 /* ================================================
    GET STARTED MODAL POPUP
    hero.css
 ================================================ */
 
+
 /* Overlay - dark background behind popup */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -1107,13 +1125,17 @@
     transition: all var(--transition-normal);
 }
 
+
 /* When modal is open */
+
 .modal-overlay.open {
     opacity: 1;
     visibility: visible;
 }
 
+
 /* Modal box */
+
 .modal-box {
     background: var(--bg-secondary);
     border: 1px solid var(--gray-border);
@@ -1129,12 +1151,16 @@
     transition: transform var(--transition-normal);
 }
 
+
 /* When modal is open - slide down into place */
+
 .modal-overlay.open .modal-box {
     transform: translateY(0);
 }
 
+
 /* Close button */
+
 .modal-close {
     position: absolute;
     top: 1rem;
@@ -1153,7 +1179,9 @@
     color: var(--red);
 }
 
+
 /* Modal header */
+
 .modal-header {
     text-align: center;
     margin-bottom: 2rem;
@@ -1183,7 +1211,9 @@
     margin: 0;
 }
 
+
 /* Form container */
+
 .modal-form {
     display: flex;
     flex-direction: column;
@@ -1195,7 +1225,9 @@
     padding: 1.5rem;
 }
 
+
 /* Form groups */
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -1243,7 +1275,9 @@
     min-height: 100px;
 }
 
+
 /* Submit button */
+
 .modal-submit {
     width: 100%;
     padding: 1rem;
@@ -1251,7 +1285,9 @@
     margin-top: 0.5rem;
 }
 
+
 /* Thank you message - hidden by default */
+
 .modal-thankyou {
     display: none;
     text-align: center;
@@ -1279,7 +1315,9 @@
     line-height: 1.8;
 }
 
+
 /* Scrollbar inside modal */
+
 .modal-box::-webkit-scrollbar {
     width: 5px;
 }
@@ -1293,16 +1331,16 @@
     border-radius: var(--radius-full);
 }
 
+
 /* Modal Responsive */
+
 @media (max-width: 480px) {
     .modal-box {
         padding: 2rem 1.5rem;
     }
-
     .modal-header h3 {
         font-size: var(--text-lg);
     }
-
     .modal-form {
         padding: 1rem;
     }
