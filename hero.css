@@ -229,7 +229,7 @@
 
 .socials-label {
     color: var(--gray-light);
-    font-size: clamp(0.7rem, 1vw, 0.875rem);
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
     font-weight: 500;
     white-space: nowrap;
     position: relative;
