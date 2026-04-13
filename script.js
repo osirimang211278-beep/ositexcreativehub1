@@ -18,17 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // STEP 1 — Logo fades in via CSS automatically at 0.3s
 
-    // STEP 2 — Golden flare shoots across at 0.8s
+    // STEP 2 — Golden flare shoots across at 1.2s
     setTimeout(() => {
         flare.classList.add('animate');
     }, 800);
 
-    // STEP 3 — Welcome To fades in at 1.5s
+    // STEP 3 — Welcome To fades in at 2.2s
     setTimeout(() => {
         welcome.classList.add('show');
     }, 1500);
 
-    // STEP 4 — Company name types out at 1.9s
+    // STEP 4 — Company name types out at 2.8s
     setTimeout(() => {
         company.classList.add('show');
         let i = 0;
@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
         typeLetter();
     }, 1900);
 
-    // STEP 5 — Subheading fades in at 3.0s
+    // STEP 5 — Subheading fades in at 4.2s
     setTimeout(() => {
         sub.classList.add('show');
     }, 3000);
 
-    // STEP 6 — Intro slides up at 3.8s
+    // STEP 6 — Intro slides up at 5.5s
     setTimeout(() => {
         overlay.classList.add('slide-up');
         setTimeout(() => {
@@ -148,32 +148,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // ------------------------------------------------
-    // 4. PORTFOLIO FILTER
+    // 4. PORTFOLIO FILTER - event listeners inside DOM
     // ------------------------------------------------
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             filterPortfolio(this.getAttribute('data-filter'));
         });
     });
-
-
-    // ------------------------------------------------
-    // 5. TESTIMONIALS SLIDER SETUP
-    // ------------------------------------------------
-    generateDots();
-
-    // Auto slide every 5 seconds
-    let autoSlide = setInterval(() => slideTestimonials(1), 5000);
-
-    // Pause on hover
-    const slider = document.getElementById('testimonialsSlider');
-    if (slider) {
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
-        slider.addEventListener('mouseleave', () => {
-            autoSlide = setInterval(() => slideTestimonials(1), 5000);
-        });
-    }
-
 
     // ------------------------------------------------
     // 6. STATS COUNTER - triggers when visible
@@ -204,59 +185,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-
-
-    // ------------------------------------------------
-    // 8. SCROLL ANIMATIONS - triggers animate.css
-    // ------------------------------------------------
-    const animateOnScroll = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, { threshold: 0.15 });
-
-    // All elements that need animation
-    const animatedElements = document.querySelectorAll(`
-        .hero-left,
-        .hero-right,
-        .services-header,
-        .service-card,
-        .service-connector,
-        .services-cta,
-        .portfolio-header,
-        .portfolio-stats,
-        .portfolio-filter,
-        .portfolio-card,
-        .testimonials-header,
-        .testimonials-slider,
-        .slider-dots,
-        .faq-header,
-        .faq-item,
-        .faq-cta,
-        .footer-brand,
-        .footer-links,
-        .footer-services,
-        .footer-social,
-        .footer-bottom,
-        .blog-header,
-        .blog-card,
-        .about-image,
-        .about-content,
-        .contact-header,
-        .contact-form-wrapper,
-        .contact-info-wrapper,
-        [data-animate]
-    `);
-
-    animatedElements.forEach(el => animateOnScroll.observe(el));
-
-    // Trigger hero animations after intro finishes
-    setTimeout(() => {
-        document.querySelector('.hero-left') ? .classList.add('animated');
-        document.querySelector('.hero-right') ? .classList.add('animated');
-    }, 4200);
 
 });
 
