@@ -510,9 +510,9 @@
                     
                     @media (max-width: 768px) {
                          :root {
-                            --text-4xl: 2.5rem;
-                            --text-3xl: 2rem;
-                            --text-2xl: 1.75rem;
+                            --text-4xl: 2.8rem;
+                            --text-3xl: 2.2rem;
+                            --text-2xl: 1.85rem;
                         }
                         .container {
                             padding: 0 var(--spacing-sm);
@@ -524,9 +524,9 @@
                     
                     @media (max-width: 480px) {
                          :root {
-                            --text-4xl: 2rem;
-                            --text-3xl: 1.75rem;
-                            --text-2xl: 1.5rem;
-                            --text-xl: 1.25rem;
+                            --text-4xl: 2.2rem;
+                            --text-3xl: 1.9rem;
+                            --text-2xl: 1.6rem;
+                            --text-xl: 1.3rem;
                         }
                     }
