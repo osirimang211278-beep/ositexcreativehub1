@@ -1,0 +1,619 @@
+/* ================================================
+   OSITEX CREATIVE HUB - Contact Section Styles
+   contact.css
+   ================================================ */
+
+/* ------------------------------------------------
+   1. CONTACT SECTION CONTAINER
+------------------------------------------------ */
+
+.contact {
+    position: relative;
+    background: var(--bg-secondary);
+    padding: var(--spacing-xl) 0;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(0, 26, 77, 0.1) 0%, 
+        rgba(204, 0, 0, 0.05) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ------------------------------------------------
+   2. CONTACT SECTION HEADER
+------------------------------------------------ */
+
+.contact-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-header .section-title {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.contact-header .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--gray-light);
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+/* ------------------------------------------------
+   3. CONTACT CONTENT LAYOUT
+------------------------------------------------ */
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    position: relative;
+    z-index: 1;
+}
+
+/* ------------------------------------------------
+   4. CONTACT FORM
+------------------------------------------------ */
+
+.contact-form-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group label {
+    color: var(--white);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: var(--bg-primary);
+    border: 2px solid var(--gray-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    color: var(--white);
+    font-size: var(--text-base);
+    transition: all var(--transition-normal);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--yellow);
+    animation: formFieldGlow 2s ease-in-out infinite;
+    transform: translateY(-2px) scale(1.02);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+/* ------------------------------------------------
+   5. CONTACT INFORMATION
+------------------------------------------------ */
+
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+/* ------------------------------------------------
+   5.1. QUICK CONTACT
+------------------------------------------------ */
+
+.quick-contact {
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+.quick-contact h3 {
+    color: var(--white);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 204, 0, 0.1), 
+        transparent);
+    transition: left var(--transition-normal);
+}
+
+.contact-item:hover::before {
+    left: 100%;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    animation: contactPulse 2s ease-in-out infinite;
+}
+
+.contact-item.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.contact-item.email {
+    background: linear-gradient(135deg, #EA4335, #C13584);
+}
+
+.contact-item.phone {
+    background: linear-gradient(135deg, #34A853, #1D8348);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    animation: contactRotate 4s ease-in-out infinite;
+}
+
+.contact-icon svg {
+    color: var(--white);
+}
+
+.contact-details h4 {
+    color: var(--white);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-details p {
+    color: var(--gray-light);
+    font-size: var(--text-base);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-details span {
+    color: var(--yellow);
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+/* ------------------------------------------------
+   5.2. BUSINESS INFORMATION
+------------------------------------------------ */
+
+.business-info {
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+.business-info h3 {
+    color: var(--white);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    transition: all var(--transition-normal);
+}
+
+.info-item:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-md);
+    animation: contactBounce 1.5s ease-in-out;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 204, 0, 0.1);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-icon svg {
+    color: var(--yellow);
+}
+
+.info-details h4 {
+    color: var(--white);
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-details p {
+    color: var(--gray-light);
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.info-details span {
+    color: var(--yellow);
+    font-size: var(--text-xs);
+    font-weight: 600;
+}
+
+/* ------------------------------------------------
+   5.3. SOCIAL MEDIA
+------------------------------------------------ */
+
+.social-contact {
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-lg);
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+
+.social-contact h3 {
+    color: var(--white);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--bg-primary);
+    border: 2px solid var(--gray-border);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 204, 0, 0.3), 
+        transparent);
+    transition: left var(--transition-normal);
+}
+
+.social-icon:hover::before {
+    left: 100%;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    border-color: var(--yellow);
+    box-shadow: 0 10px 25px rgba(255, 204, 0, 0.3);
+    animation: socialIconFloat 2s ease-in-out infinite;
+}
+
+.social-icon svg {
+    color: var(--white);
+    z-index: 1;
+    position: relative;
+}
+
+/* ------------------------------------------------
+   6. PREMIUM ANIMATIONS
+------------------------------------------------ */
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(60px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+@keyframes contactPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 204, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+    }
+}
+
+@keyframes formFieldGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 204, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 204, 0, 0.1);
+    }
+}
+
+@keyframes socialIconFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(-5deg);
+    }
+}
+
+@keyframes contactShimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes contactBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes contactRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* ------------------------------------------------
+   7. RESPONSIVE DESIGN
+------------------------------------------------ */
+
+@media (max-width: 1024px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .contact-info-wrapper {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .contact-header .section-title {
+        font-size: var(--text-2xl);
+    }
+    
+    .contact-header .section-subtitle {
+        font-size: var(--text-base);
+    }
+    
+    .contact-form-wrapper,
+    .quick-contact,
+    .business-info,
+    .social-contact {
+        padding: var(--spacing-lg);
+    }
+    
+    .contact-form {
+        gap: var(--spacing-md);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: var(--spacing-sm);
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+    
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+    
+    .social-icons {
+        gap: var(--spacing-sm);
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .contact-header .section-title {
+        font-size: var(--text-xl);
+    }
+    
+    .contact-form-wrapper,
+    .quick-contact,
+    .business-info,
+    .social-contact {
+        padding: var(--spacing-md);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: var(--spacing-sm);
+        font-size: var(--text-sm);
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .info-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
