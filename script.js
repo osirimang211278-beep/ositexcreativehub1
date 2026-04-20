@@ -2,197 +2,7 @@
 // OSITEX CREATIVE HUB - script.js
 // ================================================
 
-
-// ------------------------------------------------
-// 1. INTRO ANIMATION SEQUENCE
-// ------------------------------------------------
-document.addEventListener('DOMContentLoaded', function() {
-
-    const overlay = document.getElementById('introOverlay');
-    const flare = document.getElementById('introFlare');
-    const welcome = document.getElementById('introWelcome');
-    const company = document.getElementById('introCompany');
-    const typingEl = document.getElementById('introTyping');
-    const sub = document.getElementById('introSub');
-    const companyName = 'OSITEX CREATIVE HUB';
-
-    // STEP 1 — Logo fades in via CSS automatically at 0.3s
-
-    // STEP 2 — Golden flare shoots across at 1.2s
-    setTimeout(() => {
-        flare.classList.add('animate');
-    }, 800);
-
-    // STEP 3 — Welcome To fades in at 2.2s
-    setTimeout(() => {
-        welcome.classList.add('show');
-    }, 1500);
-
-    // STEP 4 — Company name types out at 2.8s
-    setTimeout(() => {
-        company.classList.add('show');
-        let i = 0;
-        const typingSpeed = 80;
-
-        function typeLetter() {
-            if (i < companyName.length) {
-                typingEl.textContent += companyName.charAt(i);
-                i++;
-                setTimeout(typeLetter, typingSpeed);
-            }
-        }
-        typeLetter();
-    }, 1900);
-
-    // STEP 5 — Subheading fades in at 4.2s
-    setTimeout(() => {
-        sub.classList.add('show');
-    }, 3000);
-
-    // STEP 6 — Intro slides up at 5.5s
-    setTimeout(() => {
-        overlay.classList.add('slide-up');
-        setTimeout(() => {
-            overlay.classList.add('hidden');
-        }, 800);
-    }, 3800);
-
-
-    // ------------------------------------------------
-    // 2. HAMBURGER MENU
-    // ------------------------------------------------
-    const navLinks = document.querySelector('.nav-links');
-    const hamburger = document.querySelector('.hamburger');
-
-    // Close menu when a nav link is clicked
-    if (navLinks && hamburger) {
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                hamburger.classList.remove('open');
-                hamburger.setAttribute('aria-expanded', false);
-            });
-        });
-    }
-
-    // Highlight active nav link on scroll
-    window.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('section[id]');
-        const links = document.querySelectorAll('.nav-links a');
-        let current = '';
-
-        sections.forEach(section => {
-            if (window.scrollY >= section.offsetTop - 100) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        links.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-
-    // ------------------------------------------------
-    // 3. GET STARTED MODAL
-    // ------------------------------------------------
-    const modal = document.getElementById('getStartedModal');
-    const form = document.getElementById('getStartedForm');
-
-    // Close modal when clicking outside the box
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-    }
-
-    // Handle form submission
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const data = new FormData(form);
-
-            fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        form.style.display = 'none';
-                        document.getElementById('modalThankyou').classList.add('show');
-                    } else {
-                        alert('Something went wrong. Please try again.');
-                    }
-                })
-                .catch(error => {
-                    alert('Something went wrong. Please check your connection and try again.');
-                });
-        });
-    }
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-
-
-    // ------------------------------------------------
-    // 4. PORTFOLIO FILTER - event listeners inside DOM
-    // ------------------------------------------------
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterPortfolio(this.getAttribute('data-filter'));
-        });
-    });
-
-    // ------------------------------------------------
-    // 6. STATS COUNTER - triggers when visible
-    // ------------------------------------------------
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateStats();
-                statsObserver.disconnect();
-            }
-        });
-    }, { threshold: 0.3 });
-
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) statsObserver.observe(portfolioSection);
-
-
-    // ------------------------------------------------
-    // 7. BACK TO TOP BUTTON - scroll listener
-    // ------------------------------------------------
-    window.addEventListener('scroll', () => {
-        const backToTop = document.getElementById('backToTop');
-        if (backToTop) {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        }
-    });
-
-});
-
-
-// ================================================
-// GLOBAL FUNCTIONS
-// Must be OUTSIDE DOMContentLoaded so HTML
-// onclick attributes can find them
+// GLOBAL FUNCTIONS - Must be OUTSIDE DOMContentLoaded so HTML onclick attributes can find them
 // ================================================
 
 // Hamburger toggle
@@ -354,3 +164,260 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
+
+// ================================================
+// DOM CONTENT LOADED - Initialize everything
+// ================================================
+document.addEventListener('DOMContentLoaded', function() {
+
+    // ------------------------------------------------
+    // 1. INTRO ANIMATION SEQUENCE
+    // ------------------------------------------------
+    const overlay = document.getElementById('introOverlay');
+    const flare = document.getElementById('introFlare');
+    const welcome = document.getElementById('introWelcome');
+    const company = document.getElementById('introCompany');
+    const typingEl = document.getElementById('introTyping');
+    const sub = document.getElementById('introSub');
+    const companyName = 'OSITEX CREATIVE HUB';
+
+    // STEP 2 - Golden flare shoots across at 0.8s
+    setTimeout(() => {
+        if (flare) flare.classList.add('animate');
+    }, 800);
+
+    // STEP 3 - Welcome To fades in at 1.5s
+    setTimeout(() => {
+        if (welcome) welcome.classList.add('show');
+    }, 1500);
+
+    // STEP 4 - Company name types out at 1.9s
+    setTimeout(() => {
+        if (company) company.classList.add('show');
+        let i = 0;
+        const typingSpeed = 80;
+
+        function typeLetter() {
+            if (i < companyName.length && typingEl) {
+                typingEl.textContent += companyName.charAt(i);
+                i++;
+                setTimeout(typeLetter, typingSpeed);
+            }
+        }
+        typeLetter();
+    }, 1900);
+
+    // STEP 5 - Subheading fades in at 3.0s
+    setTimeout(() => {
+        if (sub) sub.classList.add('show');
+    }, 3000);
+
+    // STEP 6 - Intro slides up at 3.8s
+    setTimeout(() => {
+        if (overlay) {
+            overlay.classList.add('slide-up');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 800);
+        }
+    }, 3800);
+
+    // ------------------------------------------------
+    // 2. HAMBURGER MENU
+    // ------------------------------------------------
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+
+    // Close menu when a nav link is clicked
+    if (navLinks && hamburger) {
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', false);
+            });
+        });
+    }
+
+    // Highlight active nav link on scroll
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const links = document.querySelectorAll('.nav-links a');
+        let current = '';
+
+        sections.forEach(section => {
+            if (window.scrollY >= section.offsetTop - 100) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // ------------------------------------------------
+    // 3. GET STARTED MODAL
+    // ------------------------------------------------
+    const modal = document.getElementById('getStartedModal');
+    const form = document.getElementById('getStartedForm');
+
+    // Close modal when clicking outside the box
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    }
+
+    // Handle form submission
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const data = new FormData(form);
+            fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        const thankyou = document.getElementById('modalThankyou');
+                        if (thankyou) thankyou.classList.add('show');
+                    } else {
+                        alert('Something went wrong. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    alert('Something went wrong. Please check your connection and try again.');
+                });
+        });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // ------------------------------------------------
+    // 4. PORTFOLIO FILTER
+    // ------------------------------------------------
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterPortfolio(this.getAttribute('data-filter'));
+        });
+    });
+
+    // ------------------------------------------------
+    // 5. TESTIMONIALS SLIDER SETUP
+    // ------------------------------------------------
+    generateDots();
+
+    // Auto slide every 5 seconds
+    let autoSlide = setInterval(() => slideTestimonials(1), 5000);
+
+    // Pause on hover
+    const slider = document.getElementById('testimonialsSlider');
+    if (slider) {
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        slider.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => slideTestimonials(1), 5000);
+        });
+    }
+
+    // ------------------------------------------------
+    // 6. STATS COUNTER - triggers when visible
+    // ------------------------------------------------
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats();
+                statsObserver.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) statsObserver.observe(portfolioSection);
+
+    // ------------------------------------------------
+    // 7. BACK TO TOP BUTTON - scroll listener
+    // ------------------------------------------------
+    window.addEventListener('scroll', () => {
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+    });
+
+    // ------------------------------------------------
+    // 8. SCROLL ANIMATIONS - triggers animate.css
+    // ------------------------------------------------
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            } else {
+                entry.target.classList.remove('animated');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    // All elements that need animation
+    const animatedElements = document.querySelectorAll(`
+                .hero-left,
+                .hero-right,
+                .services-header,
+                .service-card,
+                .service-connector,
+                .services-cta,
+                .portfolio-header,
+                .portfolio-stats,
+                .portfolio-filter,
+                .portfolio-card,
+                .testimonials-header,
+                .testimonials-slider,
+                .slider-dots,
+                .faq-header,
+                .faq-item,
+                .faq-cta,
+                .footer-brand,
+                .footer-links,
+                .footer-services,
+                .footer-social,
+                .footer-bottom,
+                .blog-header,
+                .blog-card,
+                .about-image,
+                .about-content,
+                .contact-header,
+                .contact-form-wrapper,
+                .contact-info-wrapper,
+                [data-animate]
+            `);
+
+    animatedElements.forEach(el => animateOnScroll.observe(el));
+
+    // Trigger hero animations after intro finishes
+    setTimeout(() => {
+        const heroLeft = document.querySelector('.hero-left');
+        const heroRight = document.querySelector('.hero-right');
+        if (heroLeft) heroLeft.classList.add('animated');
+        if (heroRight) heroRight.classList.add('animated');
+    }, 4200);
+
+});

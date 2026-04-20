@@ -42,53 +42,53 @@
 
 .geo-shape {
     position: absolute;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     transform: rotate(45deg);
 }
 
 .shape-1 {
-    width: 300px;
-    height: 300px;
-    top: -100px;
-    left: -100px;
+    width: 320px;
+    height: 320px;
+    top: -110px;
+    left: -110px;
     border-color: rgba(0, 51, 204, 0.15);
-    animation: rotateSlow 20s linear infinite;
+    animation: rotateSlow 22s linear infinite;
 }
 
 .shape-2 {
-    width: 200px;
-    height: 200px;
-    top: 50px;
-    right: 100px;
-    border-color: rgba(204, 0, 0, 0.1);
-    animation: rotateSlow 15s linear infinite reverse;
+    width: 220px;
+    height: 220px;
+    top: 55px;
+    right: 110px;
+    border-color: rgba(204, 0, 0, 0.12);
+    animation: rotateSlow 17s linear infinite reverse;
 }
 
 .shape-3 {
-    width: 150px;
-    height: 150px;
-    top: 40%;
-    left: 5%;
-    border-color: rgba(255, 204, 0, 0.08);
-    animation: rotateSlow 12s linear infinite;
+    width: 160px;
+    height: 160px;
+    top: 42%;
+    left: 6%;
+    border-color: rgba(255, 204, 0, 0.09);
+    animation: rotateSlow 13s linear infinite;
 }
 
 .shape-4 {
-    width: 400px;
-    height: 400px;
-    bottom: -150px;
-    right: -150px;
-    border-color: rgba(0, 51, 204, 0.1);
-    animation: rotateSlow 25s linear infinite reverse;
+    width: 440px;
+    height: 440px;
+    bottom: -160px;
+    right: -160px;
+    border-color: rgba(0, 51, 204, 0.11);
+    animation: rotateSlow 28s linear infinite reverse;
 }
 
 .shape-5 {
-    width: 100px;
-    height: 100px;
-    bottom: 100px;
-    left: 15%;
-    border-color: rgba(204, 0, 0, 0.08);
-    animation: rotateSlow 10s linear infinite;
+    width: 110px;
+    height: 110px;
+    bottom: 105px;
+    left: 16%;
+    border-color: rgba(204, 0, 0, 0.09);
+    animation: rotateSlow 11s linear infinite;
 }
 
 @keyframes rotateSlow {
@@ -109,13 +109,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 3.5rem;
     position: relative;
     z-index: 1;
     width: 100%;
     height: 100%;
-    margin-top: -40px;
-    /* pulls wrapper up to center it visually */
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
 }
 
 
@@ -842,8 +843,8 @@
 
 .intro-logo {
     opacity: 0;
-    transform: scale(0.5);
-    animation: logoFadeIn 1s ease-out 0.3s forwards;
+    transform: scale(0.8) translateY(20px);
+    animation: logoFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
 }
 
 .intro-logo img {
@@ -851,29 +852,41 @@
     height: 120px;
     object-fit: contain;
     filter: drop-shadow(0 0 30px rgba(255, 204, 0, 0.4));
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 30px rgba(255, 204, 0, 0.4));
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(255, 204, 0, 0.6));
+    }
 }
 
 @keyframes logoFadeIn {
     0% {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.8) translateY(20px);
     }
     60% {
-        transform: scale(1.1);
+        transform: scale(1.05) translateY(-5px);
     }
     100% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
     }
 }
 
 .intro-welcome {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .intro-welcome.show {
-    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .intro-welcome span {
@@ -887,15 +900,13 @@
 
 .intro-company {
     opacity: 0;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
+    transform: translateX(-50px) scale(0.95);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .intro-company.show {
     opacity: 1;
+    transform: translateX(0) scale(1);
 }
 
 #introTyping {
@@ -926,11 +937,13 @@
 
 .intro-sub {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .intro-sub.show {
-    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .intro-sub p {
