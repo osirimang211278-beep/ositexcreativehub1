@@ -530,3 +530,135 @@
                             --text-xl: 1.3rem;
                         }
                     }
+
+
+/* ================================================
+   DOCUMENT MODAL (for CAC and TIN certificates)
+   ================================================ */
+
+.document-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.document-modal-overlay.open {
+    display: flex;
+    opacity: 1;
+}
+
+.document-modal-box {
+    background: white;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.document-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #cc0000;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.document-modal-close:hover {
+    background: #990000;
+    transform: rotate(90deg);
+}
+
+.document-modal-header {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.document-modal-header h3 {
+    color: #001a4d;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+.document-subtitle {
+    color: #666;
+    margin: 0;
+}
+
+.document-viewer {
+    padding: 30px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.document-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: zoom-in;
+}
+
+.document-actions {
+    padding: 20px 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    border-top: 2px solid #f0f0f0;
+}
+
+.clickable {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.clickable:hover {
+    color: #cc0000;
+}
+
+@media (max-width: 768px) {
+    .document-modal-box {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .document-modal-header h3 {
+        font-size: 1.4rem;
+    }
+    
+    .document-actions {
+        flex-direction: column;
+    }
+}

@@ -165,6 +165,59 @@ function scrollToTop() {
     });
 }
 
+// Document Modal Functions
+let currentDocumentSrc = '';
+
+function openDocumentModal(title, imageSrc) {
+    const modal = document.getElementById('documentModal');
+    const modalTitle = document.getElementById('documentTitle');
+    const documentImage = document.getElementById('documentImage');
+    
+    modalTitle.textContent = title;
+    documentImage.src = imageSrc;
+    currentDocumentSrc = imageSrc;
+    
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeDocumentModal() {
+    const modal = document.getElementById('documentModal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    currentDocumentSrc = '';
+}
+
+function downloadDocument() {
+    if (currentDocumentSrc) {
+        const link = document.createElement('a');
+        link.href = currentDocumentSrc;
+        link.download = currentDocumentSrc.split('/').pop();
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('documentModal');
+        if (modal && modal.classList.contains('open')) {
+            closeDocumentModal();
+        }
+    }
+});
+
+// Close modal on background click
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('documentModal');
+    if (event.target === modal) {
+        closeDocumentModal();
+    }
+});
+
 // ================================================
 // DOM CONTENT LOADED - Initialize everything
 // ================================================

@@ -867,7 +867,92 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about"></section>
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-wrapper">
+                
+                <!-- COMPANY INFO SECTION -->
+                <div class="company-info">
+                    <div class="company-header">
+                        <div class="company-logo-section">
+                            <img src="b.png" alt="Ositex Creative Hub Logo" class="company-logo">
+                        </div>
+                        <div class="company-details">
+                            <h2>Ositex Creative Hub</h2>
+                            <p class="company-tagline">Creative Solutions For Modern Businesses</p>
+                        </div>
+                    </div>
+                    
+                    <p class="company-description">
+                        We are a premier creative agency dedicated to helping businesses thrive in the digital age. With expertise in Graphic Design, Digital Marketing, Web Development, Social Media Management, and Video Editing, we transform your vision into reality. Our team of creative professionals combines innovation with proven strategies to deliver exceptional results that drive growth and engagement.
+                    </p>
+                    
+                    <!-- LEGAL INFORMATION -->
+                    <div class="legal-info">
+                        <h3>Legal Information</h3>
+                        <div class="legal-item">
+                            <span class="legal-label">Company Registration</span>
+                            <span class="legal-value verified clickable" onclick="openDocumentModal('CAC Registration', 'cac.png')">CAC Registered ✓</span>
+                        </div>
+                        <div class="legal-item">
+                            <span class="legal-label">Tax Identification</span>
+                            <span class="legal-value verified clickable" onclick="openDocumentModal('TIN Certificate', 'tin.png')">TIN Available ✓</span>
+                        </div>
+                        <div class="legal-item">
+                            <span class="legal-label">Business Type</span>
+                            <span class="legal-value">Limited Liability Company</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AWARDS & CERTIFICATES SECTION -->
+                <div class="awards-section">
+                    <div class="awards-header">
+                        <h3>Awards & Certifications</h3>
+                    </div>
+                    <div class="awards-grid">
+                        <div class="award-card">
+                            <span class="award-icon">🏆</span>
+                            <h4 class="award-title">Best Creative Agency 2023</h4>
+                            <p class="award-issuer">Nigeria Digital Awards</p>
+                            <span class="award-year">2023</span>
+                        </div>
+                        <div class="award-card">
+                            <span class="award-icon">🎨</span>
+                            <h4 class="award-title">Design Excellence</h4>
+                            <p class="award-issuer">Creative Professionals Guild</p>
+                            <span class="award-year">2023</span>
+                        </div>
+                        <div class="award-card">
+                            <span class="award-icon">📈</span>
+                            <h4 class="award-title">Marketing Innovation</h4>
+                            <p class="award-issuer">Digital Marketing Association</p>
+                            <span class="award-year">2022</span>
+                        </div>
+                        <div class="award-card">
+                            <span class="award-icon">🌟</span>
+                            <h4 class="award-title">Client Satisfaction</h4>
+                            <p class="award-issuer">Business Excellence Awards</p>
+                            <span class="award-year">2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CEO/FOUNDER SECTION -->
+                <div class="leader-section">
+                    <div class="leader-image-container">
+                        <img src="21.jpg" alt="Ositex Creative Hub Logo" class="leader-image">
+                    </div>
+                    <h3 class="leader-name">Osiri Mang Osiri</h3>
+                    <p class="leader-title">Founder & Creative Director</p>
+                    <p class="leader-bio">
+                        With over 5 years of experience in creative digital solutions, Osiri Mang Osiri founded Ositex Creative Hub with a vision to empower businesses through innovative design and strategic marketing. His leadership and creative expertise have helped numerous clients achieve their business goals and establish strong digital presence.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact"></section>
@@ -996,6 +1081,30 @@
         </div>
 
     </footer>
+
+    <!-- DOCUMENT VIEWER MODAL -->
+    <div class="document-modal-overlay" id="documentModal">
+        <div class="document-modal-box">
+            <!-- CLOSE BUTTON -->
+            <button class="document-modal-close" onclick="closeDocumentModal()" aria-label="Close Document">&times;</button>
+
+            <!-- DOCUMENT HEADER -->
+            <div class="document-modal-header">
+                <h3 id="documentTitle">Document</h3>
+                <p class="document-subtitle">Official Company Document</p>
+            </div>
+
+            <!-- DOCUMENT VIEWER -->
+            <div class="document-viewer">
+                <img id="documentImage" src="" alt="Official Document" class="document-image">
+            </div>
+
+            <!-- DOCUMENT ACTIONS -->
+            <div class="document-actions">
+                <button class="btn-primary" onclick="closeDocumentModal()">Close</button>
+            </div>
+        </div>
+    </div>
 
     <!-- BACK TO TOP BUTTON -->
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
