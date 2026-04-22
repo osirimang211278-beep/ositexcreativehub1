@@ -1,12 +1,1276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Original Index</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#001a4d">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO -->
+    <meta name="description" content="Ositex Creative Hub offers professional Graphic Design, Digital Marketing, and Web Development solutions to help modern businesses grow and thrive online.">
+    <meta name="keywords" content="graphic design, digital marketing, web development, social media management, video editing, brand identity, logo design, business card design, flyer design, Facebook ads, Instagram ads, website design, Ositex, creative hub, Osiri Mang Osiri, Nigeria">
+    <meta name="author" content="Ositex Creative Hub">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ositexcreativehub.netlify.app">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ositex Creative Hub">
+    <meta property="og:description" content="Modern creative solutions for your business.">
+    <meta property="og:image" content="https://ositexcreativehub.netlify.app/b.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ositexcreativehub.netlify.app">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="b.png">
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
+
+    <title>Ositex Creative Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="faq.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="animate.css">
 </head>
+
 <body>
-    <h1>Welcome to the Original Index Page!</h1>
-    <p>This is the original version of the index.html before any performance optimization.</p>
+
+    <!-- INTRO ANIMATION -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-content">
+            <div class="intro-icon">
+                <img src="b.png" alt="Ositex Creative Hub Logo" width="100" height="100">
+            </div>
+            <h1 class="intro-title">Ositex Creative Hub</h1>
+            <p class="intro-tagline">Creative Solutions For Modern Businesses</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+
+        <!-- LOGO + BRAND NAME -->
+        <div class="nav-logo">
+            <img src="b.png" alt="Ositex Creative Hub Logo">
+            <div class="brand-name">
+                <span class="brand-main">Ositex</span>
+                <span class="brand-sub">Creative Hub</span>
+            </div>
+        </div>
+
+        <!-- NAV LINKS -->
+        <ul class="nav-links" role="menubar">
+            <li role="none"><a href="#home" role="menuitem">Home</a></li>
+            <li role="none"><a href="#services" role="menuitem">Services</a></li>
+            <li role="none"><a href="#portfolio" role="menuitem">Portfolio</a></li>
+            <li role="none"><a href="#blog" role="menuitem">Blog</a></li>
+            <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
+            <li role="none"><a href="#about" role="menuitem">About Us</a></li>
+            <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+        </ul>
+
+        <!-- HAMBURGER MENU -->
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </nav>
+
+    <!-- GET STARTED POPUP MODAL -->
+    <div class="modal-overlay" id="getStartedModal">
+        <div class="modal-box">
+
+            <!-- CLOSE BUTTON -->
+            <button class="modal-close" onclick="closeModal()" aria-label="Close Modal">&times;</button>
+
+            <!-- MODAL HEADER -->
+            <div class="modal-header">
+                <div class="modal-logo">
+                    <img src="b.png" alt="Ositex Creative Hub">
+                </div>
+                <h3>Get Started With Us</h3>
+                <p>Tell us about your project and we will get back to you within 24 hours</p>
+            </div>
+
+            <!-- FORM -->
+            <form class="modal-form" id="getStartedForm" action="https://formspree.io/f/mvzwqqya" method="POST">
+
+                <!-- PHONE NUMBER -->
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <!-- SERVICE INTERESTED IN -->
+                <div class="form-group">
+                    <label for="service">Service Interested In <span class="required">*</span></label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="Graphic Design">Graphic Design</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Social Media Management">Social Media Management</option>
+                        <option value="Video Editing">Video Editing</option>
+                        <option value="Full Package">Full Package - All Services</option>
+                    </select>
+                </div>
+
+                <!-- BUDGET RANGE -->
+                <div class="form-group">
+                    <label for="budget">Budget Range <span class="required">*</span></label>
+                    <select id="budget" name="budget" required>
+                        <option value="" disabled selected>Select your budget</option>
+                        <option value="Below $500">Below $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $5,000">$1,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="Above $10,000">Above $10,000</option>
+                    </select>
+                </div>
+
+                <!-- MESSAGE OR PROJECT DESCRIPTION -->
+                <div class="form-group">
+                    <label for="message">Project Description <span class="required">*</span></label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project..." rows="4" required></textarea>
+                </div>
+
+                <!-- HIDDEN FIELDS -->
+                <input type="hidden" name="_subject" value="New Get Started Request - Ositex Creative Hub">
+                <input type="hidden" name="_next" value="https://www.ositexcreativehub.com">
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="btn-primary modal-submit">Send Request</button>
+
+            </form>
+
+            <!-- THANK YOU MESSAGE -->
+            <div class="modal-thankyou" id="modalThankyou">
+                <div class="thankyou-icon">✅</div>
+                <h3>Thank You!</h3>
+                <p>Your request has been received. Our team at Ositex Creative Hub will get back to you within 24 hours.</p>
+                <button class="btn-primary" onclick="closeModal()">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+
+        <!-- GEOMETRIC BACKGROUND PATTERN -->
+        <div class="hero-bg">
+            <div class="geo-shape shape-1"></div>
+            <div class="geo-shape shape-2"></div>
+            <div class="geo-shape shape-3"></div>
+            <div class="geo-shape shape-4"></div>
+            <div class="geo-shape shape-5"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-wrapper">
+
+                <!-- LEFT SIDE -->
+                <div class="hero-left">
+
+                    <!-- TAG LINE -->
+                    <div class="hero-tag">
+                        <span class="tag-dot"></span>
+                        <span>Welcome to Ositex Creative Hub</span>
+                    </div>
+
+                    <!-- COMPANY NAME -->
+                    <h1 class="hero-title">
+                        Creative Solutions For
+                        <span class="hero-title-highlight">Modern Businesses</span>
+                    </h1>
+
+                    <!-- DESCRIPTION -->
+                    <p class="hero-desc">
+                        We help businesses grow and thrive in the digital world through integrated Graphic Design, Digital Marketing, and Web Development solutions tailored for the modern age.
+                    </p>
+
+                    <!-- BUTTONS -->
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="openModal()">Get Started</button>
+                        <a href="#services" class="btn-outline">Our Services</a>
+                    </div>
+
+                    <!-- SOCIAL MEDIA ICONS -->
+                    <div class="hero-socials">
+                        <span class="socials-label">Follow Us</span>
+                        <div class="socials-icons">
+
+                            <!-- FACEBOOK -->
+                            <a href="https://www.facebook.com/profile.php?id=100094936584927" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
+                                </svg>
+                            </a>
+
+                            <!-- INSTAGRAM -->
+                            <a href="https://www.instagram.com/ositexmanope?igsh=aG96b2swbHF0emc1" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+
+                            <!-- LINKEDIN -->
+                            <a href="https://www.linkedin.com/in/osiri-mang-osiri-066b4836a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+
+                            <!-- TIKTOK -->
+                            <a href="https://www.tiktok.com/@ositexmanopex162?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/>
+                                </svg>
+                            </a>
+
+                            <!-- TWITTER / X -->
+                            <a href="https://x.com/OsiriMang" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+
+                            <!-- YOUTUBE -->
+                            <a href="https://youtube.com/@ositexcreativehub?si=Kl4MpIAEh-AIqXOi" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="hero-right">
+
+                    <!-- FLOATING LOGO CONTAINER -->
+                    <div class="hero-logo-container">
+
+                        <!-- RINGS -->
+                        <div class="logo-ring ring-outer"></div>
+                        <div class="logo-ring ring-middle"></div>
+                        <div class="logo-ring ring-inner"></div>
+
+                        <!-- LOGO IMAGE -->
+                        <div class="hero-logo-box">
+                            <img src="b.png" alt="Ositex Creative Hub Logo" class="hero-logo-img" loading="eager">
+                        </div>
+
+                        <!-- FLOATING BADGES -->
+                        <div class="hero-badge badge-1">
+                            <span class="badge-icon">🎨</span>
+                            <span class="badge-text">Graphic Design</span>
+                        </div>
+                        <div class="hero-badge badge-2">
+                            <span class="badge-icon">📣</span>
+                            <span class="badge-text">Digital Marketing</span>
+                        </div>
+                        <div class="hero-badge badge-3">
+                            <span class="badge-icon">💻</span>
+                            <span class="badge-text">Web Development</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SCROLL DOWN INDICATOR
+        <div class="hero-scroll">
+            <span>Scroll Down</span>
+            <div class="scroll-line">
+                <div class="scroll-dot"></div>
+            </div>
+        </div> -->
+
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services" style="opacity: 1 !important;">
+
+        <div class="container">
+
+            <!-- SECTION HEADER -->
+            <div class="services-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Everything your business needs to grow and thrive in the modern digital world — all under one roof</p>
+            </div>
+
+            <!-- CONNECTED FLOW - TOP ROW (3 services) -->
+            <div class="services-flow" style="opacity: 1 !important;">
+
+                <!-- SERVICE CARD 1 - Graphic Design -->
+                <div class="service-card" style="opacity: 1 !important;">
+                    <div class="service-icon-box">
+                        <span class="service-icon">🎨</span>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p class="service-desc">We create stunning visual identities that make your brand unforgettable and stand out from the competition.</p>
+                    <ul class="service-list">
+                        <li>Logo Design</li>
+                        <li>Birthday Design</li>
+                        <li>Business Card Design</li>
+                        <li>Flyer & Poster Design</li>
+                        <li>Brand Identity & Guidelines</li>
+                        <li>Social Media Graphics</li>
+                    </ul>
+                    <button class="btn-primary service-btn" onclick="openModal()">Get Started</button>
+                </div>
+
+                <!-- CONNECTOR ARROW -->
+                <div class="service-connector" style="opacity: 1 !important;">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+
+                <!-- SERVICE CARD 2 - Digital Marketing -->
+                <div class="service-card service-card-featured" style="opacity: 1 !important;">
+                    <div class="service-featured-badge">Most Popular</div>
+                    <div class="service-icon-box">
+                        <span class="service-icon">📣</span>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p class="service-desc">Strategic campaigns that grow your audience and drive real results across all major digital platforms.</p>
+                    <ul class="service-list">
+                        <li>Facebook & Instagram Ads</li>
+                        <li>Google Ads Management</li>
+                        <li>Tiktok Ads & Twitter Ads</li>
+                        <li>Linkedin Ads & Youtube Ads</li>
+                        <li>Content Strategy</li>
+                        <li>Analytics & Reporting</li>
+                    </ul>
+                    <button class="btn-primary service-btn" onclick="openModal()">Get Started</button>
+                </div>
+
+                <!-- CONNECTOR ARROW -->
+                <div class="service-connector" style="opacity: 1 !important;">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+
+                <!-- SERVICE CARD 3 - Web Development -->
+                <div class="service-card" style="opacity: 1 !important;">
+                    <div class="service-icon-box">
+                        <span class="service-icon">💻</span>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p class="service-desc">Professional, responsive websites that make your business accessible to customers worldwide 24/7.</p>
+                    <ul class="service-list">
+                        <li>Business Website Design</li>
+                        <li>E-Commerce Development</li>
+                        <li>Website Maintenance</li>
+                        <li>SEO Optimization</li>
+                        <li>Mobile Responsive Design</li>
+                    </ul>
+                    <button class="btn-primary service-btn" onclick="openModal()">Get Started</button>
+                </div>
+
+            </div>
+
+            <!-- CONNECTOR ARROW -->
+            <div class="service-connector">
+                <div class="connector-line"></div>
+                <div class="connector-arrow">→</div>
+            </div>
+
+            <!-- BOTTOM ROW (2 services centered) -->
+            <div class="services-flow services-flow-bottom" style="opacity: 1 !important;">
+
+                <!-- SERVICE CARD 4 - Social Media Management -->
+                <div class="service-card" style="opacity: 1 !important;">
+                    <div class="service-icon-box">
+                        <span class="service-icon">📱</span>
+                    </div>
+                    <h3>Social Media Management</h3>
+                    <p class="service-desc">We manage your social media presence so you can focus on running your business while we grow your audience.</p>
+                    <ul class="service-list">
+                        <li>Content Creation & Scheduling</li>
+                        <li>Community Management</li>
+                        <li>Facebook & Instagram Management</li>
+                        <li>TikTok & LinkedIn Management</li>
+                        <li>Twitter & Youtube Management</li>
+                        <li>Monthly Performance Reports</li>
+                    </ul>
+                    <button class="btn-primary service-btn" onclick="openModal()">Get Started</button>
+                </div>
+
+                <!-- CONNECTOR ARROW -->
+                <div class="service-connector" style="opacity: 1 !important;">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">→</div>
+                </div>
+
+                <!-- SERVICE CARD 5 - Video Editing -->
+                <div class="service-card" style="opacity: 1 !important;">
+                    <div class="service-icon-box">
+                        <span class="service-icon">🎬</span>
+                    </div>
+                    <h3>Video Editing</h3>
+                    <p class="service-desc">Professional video editing that tells your brand story and captures your audience's attention.</p>
+                    <ul class="service-list">
+                        <li>Motion Graphics</li>
+                        <li>Brand Story Videos</li>
+                        <li>YouTube Video Editing</li>
+                        <li>Social Media Video Clips</li>
+                        <li>Promotional Video Editing</li>
+                    </ul>
+                    <button class="btn-primary service-btn" onclick="openModal()">Get Started</button>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM CTA -->
+            <div class="services-cta" style="opacity: 1 !important;">
+                <p>Not sure which service is right for you?</p>
+                <button class="btn-yellow" onclick="openModal()">Talk To Us — We Will Help You Decide</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="portfolio">
+
+        <div class="container">
+
+            <!-- SECTION HEADER -->
+            <div class="portfolio-header">
+                <h2 class="section-title">Our Portfolio</h2>
+                <p class="section-subtitle">A showcase of our work — real projects, real results</p>
+            </div>
+
+            <!-- STATS BAR -->
+            <div class="portfolio-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="20">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label">Mentees Trained</span>
+                </div>
+            </div>
+
+            <!-- FILTER BAR -->
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="graphic-design">Graphic Design</button>
+                <button class="filter-btn" data-filter="digital-marketing">Digital Marketing</button>
+                <button class="filter-btn" data-filter="web-development">Web Development</button>
+                <button class="filter-btn" data-filter="social-media">Social Media</button>
+                <button class="filter-btn" data-filter="video-editing">Video Editing</button>
+            </div>
+
+            <!-- PORTFOLIO GRID -->
+            <div class="portfolio-grid" id="portfolioGrid">
+
+                <!-- PROJECT 1 - Graphic Design -->
+                <div class="portfolio-card" data-category="graphic-design">
+                    <div class="portfolio-img">
+                        <img src="portfolio/project-1.jpg" alt="Brand Identity Project" onerror="this.parentElement.style.background='linear-gradient(135deg, #001a4d, #cc0000)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Brand Identity Design</h4>
+                                <p>Complete brand identity for a startup</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category graphic-design">Graphic Design</span>
+                        <h3>Brand Identity Project</h3>
+                        <p>Logo, business card, and full brand guidelines for a modern startup.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2 - Digital Marketing -->
+                <div class="portfolio-card" data-category="digital-marketing">
+                    <div class="portfolio-img">
+                        <img src="portfolio/project-2.jpg" alt="Digital Marketing Campaign" onerror="this.parentElement.style.background='linear-gradient(135deg, #cc0000, #001a4d)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Facebook Ad Campaign</h4>
+                                <p>250% ROI in 60 days</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category digital-marketing">Digital Marketing</span>
+                        <h3>Facebook Ad Campaign</h3>
+                        <p>Strategic ad campaign that generated 250% ROI for a local business.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3 - Web Development -->
+                <div class="portfolio-card" data-category="web-development">
+                    <div class="portfolio-img">
+                        <img src="portfolio/project-3.jpg" alt="Website Development" onerror="this.parentElement.style.background='linear-gradient(135deg, #001a4d, #ffcc00)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Business Website</h4>
+                                <p>Fully responsive professional website</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category web-development">Web Development</span>
+                        <h3>Business Website</h3>
+                        <p>Responsive website built for a business to reach customers worldwide.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 4 - Social Media -->
+                <div class="portfolio-card" data-category="social-media">
+                    <div class="portfolio-img">
+                        <img src="portfolio/project-4.jpg" alt="Social Media Management" onerror="this.parentElement.style.background='linear-gradient(135deg, #cc0000, #ffcc00)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Social Media Growth</h4>
+                                <p>2,000+ followers in 60 days</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category social-media">Social Media</span>
+                        <h3>Social Media Growth</h3>
+                        <p>Managed and grew a brand's social media presence across 4 platforms.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 5 - Video Editing -->
+                <div class="portfolio-card" data-category="video-editing">
+                    <div class="portfolio-img">
+                        <img src="portfolio/project-5.jpg" alt="Video Editing" onerror="this.parentElement.style.background='linear-gradient(135deg, #001a4d, #cc0000)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Promotional Video</h4>
+                                <p>Brand story video with motion graphics</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category video-editing">Video Editing</span>
+                        <h3>Promotional Video</h3>
+                        <p>Professional brand story video with motion graphics and sound design.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 6 - Graphic Design -->
+                <div class="portfolio-card" data-category="graphic-design">
+                    <div class="portfolio-img">
+                        <img src="portfolio/project-6.jpg" alt="Flyer Design" onerror="this.parentElement.style.background='linear-gradient(135deg, #ffcc00, #001a4d)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Event Flyer Design</h4>
+                                <p>Eye catching promotional flyer</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category graphic-design">Graphic Design</span>
+                        <h3>Event Flyer Design</h3>
+                        <p>Bold and eye catching event flyer design for a corporate event.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <div class="testimonials-wrapper">
+            <div class="container">
+
+                <div class="testimonials-header">
+                    <h2 class="section-title">What People Say</h2>
+                    <p class="section-subtitle">Real words from real clients and mentees</p>
+                </div>
+
+                <!-- TESTIMONIALS SLIDER -->
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonials-track" id="testimonialsTrack">
+
+                        <!-- TESTIMONIAL 1 - Client -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-photo">
+                                <img src="testimonials/client-1.jpg" alt="Client Name" onerror="this.src='https://ui-avatars.com/api/?name=Client+One&background=001a4d&color=fff&size=80'">
+                            </div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"Ositex Creative Hub completely transformed our brand. Our logo and marketing materials now look incredibly professional and our sales increased by 40% after the rebrand."</p>
+                            <div class="testimonial-author">
+                                <h4>Client Name</h4>
+                                <span>CEO, Company Name</span>
+                                <span class="testimonial-result">📈 40% increase in sales</span>
+                            </div>
+                        </div>
+
+                        <!-- TESTIMONIAL 2 - Client -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-photo">
+                                <img src="testimonials/client-2.jpg" alt="Client Name" onerror="this.src='https://ui-avatars.com/api/?name=Client+Two&background=cc0000&color=fff&size=80'">
+                            </div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The Facebook ad campaign they ran for us was incredible. Within 60 days we had over 2000 new followers and our online orders tripled. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <h4>Client Name</h4>
+                                <span>Business Owner, Company Name</span>
+                                <span class="testimonial-result">📈 3x increase in online orders</span>
+                            </div>
+                        </div>
+
+                        <!-- TESTIMONIAL 3 - Client -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-photo">
+                                <img src="testimonials/client-3.jpg" alt="Client Name" onerror="this.src='https://ui-avatars.com/api/?name=Client+Three&background=001a4d&color=ffcc00&size=80'">
+                            </div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"They built our website from scratch and it looks absolutely amazing. Our customers can now find us online easily and we are getting inquiries from across the country."</p>
+                            <div class="testimonial-author">
+                                <h4>Client Name</h4>
+                                <span>Director, Company Name</span>
+                                <span class="testimonial-result">📈 Customers from 3 new regions</span>
+                            </div>
+                        </div>
+
+                        <!-- TESTIMONIAL 4 - Mentee -->
+                        <div class="testimonial-card testimonial-mentee">
+                            <div class="testimonial-photo">
+                                <img src="testimonials/mentee-1.jpg" alt="Mentee Name" onerror="this.src='https://ui-avatars.com/api/?name=Mentee+One&background=ffcc00&color=001a4d&size=80'">
+                            </div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"Before learning graphic design from Osiri, I had zero design skills. Now I am taking paid design projects and earning from my skills. The teaching was patient, practical and very detailed."</p>
+                            <div class="testimonial-author">
+                                <h4>Mentee Name</h4>
+                                <span>Graphic Design Mentee</span>
+                                <span class="testimonial-result">🎨 Now earning from design</span>
+                            </div>
+                        </div>
+
+                        <!-- TESTIMONIAL 5 - Mentee -->
+                        <div class="testimonial-card testimonial-mentee">
+                            <div class="testimonial-photo">
+                                <img src="testimonials/mentee-2.jpg" alt="Mentee Name" onerror="this.src='https://ui-avatars.com/api/?name=Mentee+Two&background=cc0000&color=fff&size=80'">
+                            </div>
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"I enrolled in Osiri's graphic design mentorship and it was one of the best decisions I made. Within 3 months I had my first paying client. The knowledge and guidance was world class."</p>
+                            <div class="testimonial-author">
+                                <h4>Mentee Name</h4>
+                                <span>Graphic Design Mentee</span>
+                                <span class="testimonial-result">🎨 First client in 3 months</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- SLIDER DOTS -->
+                <div class="slider-dots" id="sliderDots"></div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog"></section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="faq">
+
+        <div class="container">
+
+            <!-- SECTION HEADER -->
+            <div class="faq-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know before working with us</p>
+            </div>
+
+            <!-- FAQ ITEMS -->
+            <div class="faq-container">
+
+                <!-- FAQ ITEM 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How long does a project take to complete?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Project timelines vary depending on the scope of work. A logo design typically takes 3 to 5 business days, a full brand identity takes 1 to 2 weeks, a website takes 2 to 4 weeks, and a digital marketing campaign setup takes not
+                            less than 3 hours. We always discuss timelines clearly before starting any project.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ ITEM 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How much do your services cost?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our pricing depends on the specific service and scope of your project. We offer flexible packages to suit different budgets. Click the Get Started button and tell us about your project — we will send you a detailed quote within
+                            24 hours.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ ITEM 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you work with clients outside Nigeria?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes absolutely! Ositex Creative Hub works with clients worldwide. We communicate via email, WhatsApp, and video calls to ensure smooth collaboration regardless of your location.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ ITEM 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do I get started with Ositex Creative Hub?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Getting started is simple. Click the Get Started button anywhere on this website, fill in your project details, and our team will get back to you within 24 hours with a plan and quote tailored specifically to your needs.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ ITEM 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How many revisions do you offer?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer up to 3 free revisions on all design projects to ensure you are completely satisfied with the final result. Additional revisions beyond that are available at a small fee. Our goal is always to deliver work you are proud
+                            of.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ ITEM 6 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>What information do I need to provide to start a project?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The more details you share the better. For design projects we need your brand colors, preferred style, and examples of designs you like. For web development we need your content and any specific features you want. For marketing
+                            we need your target audience and business goals. Do not worry if you are not sure — we will guide you through the process.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ ITEM 7 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do I pay for your services?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept bank transfers and mobile money payments. We typically require a 50% deposit before starting a project and the remaining 50% upon completion. Full payment details will be shared when we send your project quote.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ ITEM 8 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you sign a contract before starting work?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes we do. We provide a simple project agreement that outlines the scope of work, timeline, payment terms, and revision policy. This protects both you and us and ensures everyone is on the same page from the start.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM CTA -->
+            <div class="faq-cta">
+                <p>Still have questions? We are happy to help!</p>
+                <button class="btn-primary" onclick="openModal()">Ask Us Directly</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-wrapper">
+                
+                <!-- COMPANY INFO SECTION -->
+                <div class="company-info">
+                    <div class="company-header">
+                        <div class="company-logo-section">
+                            <img src="b.png" alt="Ositex Creative Hub Logo" class="company-logo">
+                        </div>
+                        <div class="company-details">
+                            <h2>Ositex Creative Hub</h2>
+                            <p class="company-tagline">Creative Solutions For Modern Businesses</p>
+                        </div>
+                    </div>
+                    
+                    <p class="company-description">
+                        We are a premier creative agency dedicated to helping businesses thrive in the digital age. With expertise in Graphic Design, Digital Marketing, Web Development, Social Media Management, and Video Editing, we transform your vision into reality. Our team of creative professionals combines innovation with proven strategies to deliver exceptional results that drive growth and engagement.
+                    </p>
+                    
+                    <!-- LEGAL INFORMATION -->
+                    <div class="legal-info">
+                        <h3>Legal Information</h3>
+                        <div class="legal-item">
+                            <span class="legal-label">Company Registration</span>
+                            <span class="legal-value verified clickable" onclick="openDocumentModal('CAC Registration', 'cac.png')">CAC Registered ✓</span>
+                        </div>
+                        <div class="legal-item">
+                            <span class="legal-label">Tax Identification</span>
+                            <span class="legal-value verified clickable" onclick="openDocumentModal('TIN Certificate', 'tin.png')">TIN Available ✓</span>
+                        </div>
+                        <div class="legal-item">
+                            <span class="legal-label">Business Type</span>
+                            <span class="legal-value">Limited Liability Company</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AWARDS & CERTIFICATES SECTION -->
+                <div class="awards-section">
+                    <div class="awards-header">
+                        <h3>Awards & Certifications</h3>
+                    </div>
+                    <div class="awards-grid">
+                        <div class="award-card">
+                            <span class="award-icon">🏆</span>
+                            <h4 class="award-title">Best Creative Agency 2023</h4>
+                            <p class="award-issuer">Nigeria Digital Awards</p>
+                            <span class="award-year">2023</span>
+                        </div>
+                        <div class="award-card">
+                            <span class="award-icon">🎨</span>
+                            <h4 class="award-title">Design Excellence</h4>
+                            <p class="award-issuer">Creative Professionals Guild</p>
+                            <span class="award-year">2023</span>
+                        </div>
+                        <div class="award-card">
+                            <span class="award-icon">📈</span>
+                            <h4 class="award-title">Marketing Innovation</h4>
+                            <p class="award-issuer">Digital Marketing Association</p>
+                            <span class="award-year">2022</span>
+                        </div>
+                        <div class="award-card">
+                            <span class="award-icon">🌟</span>
+                            <h4 class="award-title">Client Satisfaction</h4>
+                            <p class="award-issuer">Business Excellence Awards</p>
+                            <span class="award-year">2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CEO/FOUNDER SECTION -->
+                <div class="leader-section">
+                    <div class="leader-image-container">
+                        <img src="21.jpg" alt="Ositex Creative Hub Logo" class="leader-image">
+                    </div>
+                    <h3 class="leader-name">Osiri Mang Osiri</h3>
+                    <p class="leader-title">Founder & Creative Director</p>
+                    <p class="leader-bio">
+                        With over 5 years of experience in creative digital solutions, Osiri Mang Osiri founded Ositex Creative Hub with a vision to empower businesses through innovative design and strategic marketing. His leadership and creative expertise have helped numerous clients achieve their business goals and establish strong digital presence.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            
+            <!-- SECTION HEADER -->
+            <div class="contact-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">We're here to help bring your creative vision to life</p>
+            </div>
+
+            <!-- CONTACT CONTENT -->
+            <div class="contact-wrapper">
+                
+                <!-- CONTACT FORM -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+234 800 000 0000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Needed *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="graphic-design">Graphic Design</option>
+                                <option value="digital-marketing">Digital Marketing</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="social-media">Social Media Management</option>
+                                <option value="video-editing">Video Editing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- CONTACT INFORMATION -->
+                <div class="contact-info-wrapper">
+                    
+                    <!-- QUICK CONTACT -->
+                    <div class="quick-contact">
+                        <h3>Quick Contact</h3>
+                        
+                        <!-- WhatsApp Contact -->
+                        <a href="https://wa.me/2349123093500" target="_blank" rel="noopener noreferrer" class="contact-item whatsapp">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-1.03L12.03 16.87c-.23-.133-.527-.36 1.02-.24 1.46.58 2.29 1.84 3.29 2.09.82.21 1.17.58 1.17 1.17s-.36.96-1.17 1.17c-.25.06-.54-.14-.75-.24l-2.2-2.2zM17.5 12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h4>WhatsApp</h4>
+                                <p>+234 912 309 3500</p>
+                                <span>Available 24/7</span>
+                            </div>
+                        </a>
+
+                        <!-- Email Contact -->
+                        <a href="mailto:ositexcreativehub@gmail.com" class="contact-item email">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>ositexcreativehub@gmail.com</p>
+                                <span>Response within 24 hours</span>
+                            </div>
+                        </a>
+
+                        <!-- Phone Contact -->
+                        <a href="tel:+2348135480162" class="contact-item phone">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.46.58 2.29 1.84 3.29 2.09.82.21 1.17.58 1.17 1.17s-.36.96-1.17 1.17c-.25.06-.54-.14-.75-.24l-2.2-2.2zM17.5 12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+234 813 548 0162</p>
+                                <span>Alternative contact</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- BUSINESS INFO -->
+                    <div class="business-info">
+                        <h3>Business Information</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13h1c0-5.25-7-13-7-13z"/>
+                                    <path d="M12 2v7c3.73 0 6.84 2.55 7.73 6h-1.43C17.5 6.24 15.03 4 12 4z"/>
+                                </svg>
+                            </div>
+                            <div class="info-details">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Sunday: 24/7</p>
+                                <span>Always available</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13h1c0-5.25-7-13-7-13z"/>
+                                </svg>
+                            </div>
+                            <div class="info-details">
+                                <h4>Service Area</h4>
+                                <p>Nationwide (Nigeria)</p>
+                                <span>Remote & On-site services</span>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div class="info-details">
+                                <h4>Response Time</h4>
+                                <p>Within 24 hours</p>
+                                <span>Quick turnaround</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL MEDIA -->
+                    <div class="social-contact">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=100094936584927" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/ositexmanope?igsh=aG96b2swbHF0emc1" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.4..."/>
+                                </svg>
+                            </a>
+                            <a href="https://x.com/OsiriMang" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/osiri-mang-osiri-066b4836a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.tiktok.com/@ositexmanopex162" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/>
+                                </svg>
+                            </a>
+                            <a href="https://youtube.com/@ositexcreativehub" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <!-- TOP FOOTER -->
+        <div class="footer-top">
+
+            <!-- Logo and description -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="b.png" alt="Ositex Creative Hub Logo" width="45" height="45">
+                    <div class="brand-name">
+                        <span class="brand-main">Ositex</span>
+                        <span class="brand-sub">Creative Hub</span>
+                    </div>
+                </div>
+                <p class="footer-desc">We provide modern creative solutions such as: Graphic Design, Digital Marketing, and Web Development; to help businesses grow and thrive online.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services Links -->
+            <div class="footer-services">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#services">Graphic Design</a></li>
+                    <li><a href="#services">Digital Marketing</a></li>
+                    <li><a href="#services">Web Development</a></li>
+                    <li><a href="#services">Social Media Management</a></li>
+                    <li><a href="#services">Video Editing</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <ul class="footer-social-icons">
+
+                    <!-- FACEBOOK -->
+                    <li>
+                        <a href="https://www.facebook.com/profile.php?id=100094936584927" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
+                            </svg>
+                            <span>Facebook</span>
+                        </a>
+                    </li>
+
+                    <!-- INSTAGRAM -->
+                    <li>
+                        <a href="https://www.instagram.com/ositexmanope?igsh=aG96b2swbHF0emc1" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                    </li>
+
+                    <!-- LINKEDIN -->
+                    <li>
+                        <a href="https://www.linkedin.com/in/osiri-mang-osiri-066b4836a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+
+                    <!-- TIKTOK -->
+                    <li>
+                        <a href="https://www.tiktok.com/@ositexmanopex162?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/>
+                            </svg>
+                            <span>TikTok</span>
+                        </a>
+                    </li>
+
+                    <!-- TWITTER / X -->
+                    <li>
+                        <a href="https://x.com/OsiriMang" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            <span>Twitter</span>
+                        </a>
+                    </li>
+
+                    <!-- YOUTUBE -->
+                    <li>
+                        <a href="https://youtube.com/@ositexcreativehub?si=Kl4MpIAEh-AIqXOi" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            <span>YouTube</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="footer-divider"></div>
+
+        <!-- BOTTOM FOOTER -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ositex Creative Hub. All rights reserved.</p>
+            <p>Designed &amp; Developed by Ositex Creative Hub</p>
+        </div>
+
+    </footer>
+
+    <!-- DOCUMENT VIEWER MODAL -->
+    <div class="document-modal-overlay" id="documentModal">
+        <div class="document-modal-box">
+            <!-- CLOSE BUTTON -->
+            <button class="document-modal-close" onclick="closeDocumentModal()" aria-label="Close Document">&times;</button>
+
+            <!-- DOCUMENT HEADER -->
+            <div class="document-modal-header">
+                <h3 id="documentTitle">Document</h3>
+                <p class="document-subtitle">Official Company Document</p>
+            </div>
+
+            <!-- DOCUMENT VIEWER -->
+            <div class="document-viewer">
+                <img id="documentImage" src="" alt="Official Document" class="document-image">
+            </div>
+
+            <!-- DOCUMENT ACTIONS -->
+            <div class="document-actions">
+                <button class="btn-primary" onclick="closeDocumentModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+        &#8679;
+    </button>
+
+    <!-- SCRIPT - always last -->
+    <script src="script.js"></script>
+
 </body>
+
+</html>
+
 </html>
