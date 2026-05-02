@@ -140,6 +140,48 @@
         flex-direction: column;
         transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
         opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Enhanced animations for filtered cards */
+    .portfolio-card[data-category="graphic-design"] {
+        animation: portfolioRotate 4s ease-in-out infinite;
+    }
+
+    .portfolio-card[data-category="graphic-design"]:nth-child(odd) {
+        animation-delay: 0.2s;
+    }
+
+    .portfolio-card[data-category="graphic-design"]:hover {
+        animation: portfolioBounce 1s ease-in-out;
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: var(--shadow-lg), 0 0 30px rgba(255, 204, 0, 0.3);
+        border-color: var(--yellow);
+    }
+
+    /* Sliding animation for filtered items */
+    .portfolio-card.sliding-in {
+        animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .portfolio-card.sliding-in:nth-child(1) {
+        animation-delay: 0.1s;
+        animation-name: slideInLeft;
+    }
+
+    .portfolio-card.sliding-in:nth-child(2) {
+        animation-delay: 0.2s;
+        animation-name: slideInDown;
+    }
+
+    .portfolio-card.sliding-in:nth-child(3) {
+        animation-delay: 0.3s;
+        animation-name: slideInRight;
+    }
+
+    .portfolio-card.sliding-in:nth-child(4) {
+        animation-delay: 0.4s;
+        animation-name: slideInUp;
     }
     
     .portfolio-card:hover {
@@ -169,6 +211,109 @@
     .portfolio-card:hover .portfolio-img img {
         transform: scale(1.08);
     }
+    /* ------------------------------------------------
+   6. PREMIUM ANIMATIONS
+------------------------------------------------ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes portfolioPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 204, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 204, 0, 0);
+    }
+}
+
+@keyframes portfolioShimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes portfolioBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes portfolioRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(5deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
     /* ------------------------------------------------
    8. PORTFOLIO OVERLAY
 ------------------------------------------------ */
@@ -320,7 +465,118 @@
         transition: transform 0.6s ease-in-out;
     }
     /* ------------------------------------------------
-   13. TESTIMONIAL CARD
+   13. PORTFOLIO MODAL
+------------------------------------------------ */
+
+.portfolio-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+.portfolio-modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio-modal-box {
+    background: var(--bg-card);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    max-width: 90%;
+    max-height: 90%;
+    width: 800px;
+    height: 600px;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: transform var(--transition-normal);
+    position: relative;
+}
+
+.portfolio-modal-overlay.open .portfolio-modal-box {
+    transform: scale(1);
+}
+
+.portfolio-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-full);
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-modal-close:hover {
+    background: var(--red-light);
+    transform: scale(1.1);
+}
+
+.portfolio-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.portfolio-modal-header {
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.portfolio-modal-header h3 {
+    color: var(--gray-dark);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.portfolio-modal-body {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.portfolio-modal-body img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.portfolio-modal-footer {
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--gray-border);
+    text-align: center;
+}
+
+    /* ------------------------------------------------
+   14. TESTIMONIAL CARD
 ------------------------------------------------ */
     
     .testimonial-card {

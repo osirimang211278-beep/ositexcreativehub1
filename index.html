@@ -519,6 +519,63 @@
                     </div>
                 </div>
 
+                <!-- PROJECT 6 - Graphic Design (NEW) -->
+                <div class="portfolio-card" data-category="graphic-design">
+                    <div class="portfolio-img">
+                        <img src="portfolio/graphic-1.png" alt="Victoria Chin Design Project" onerror="this.parentElement.style.background='linear-gradient(135deg, #001a4d, #ffcc00)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Victoria Chin Design</h4>
+                                <p>Professional portrait design and branding</p>
+                                <a href="#" class="btn-yellow portfolio-view" onclick="openPortfolioModal('Victoria Chin Design', 'portfolio/graphic-1.png')">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category graphic-design">Graphic Design</span>
+                        <h3>Victoria Chin Design</h3>
+                        <p>Professional portrait design and branding project showcasing advanced graphic design techniques.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 7 - Graphic Design (NEW) -->
+                <div class="portfolio-card" data-category="graphic-design">
+                    <div class="portfolio-img">
+                        <img src="portfolio/graphic-2.png" alt="Professional Brand Design" onerror="this.parentElement.style.background='linear-gradient(135deg, #cc0000, #ffcc00)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Professional Brand Design</h4>
+                                <p>Corporate branding with visual impact</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category graphic-design">Graphic Design</span>
+                        <h3>Achicam Decor Design</h3>
+                        <p>Complete corporate branding solution with impactful visual identity and professional design elements.</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT 8 - Graphic Design (NEW) -->
+                <div class="portfolio-card" data-category="graphic-design">
+                    <div class="portfolio-img">
+                        <img src="portfolio/graphic-3.png" alt="Modern Graphic Art" onerror="this.parentElement.style.background='linear-gradient(135deg, #001a4d, #cc0000)'">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h4>Big Sis Design</h4>
+                                <p>Contemporary design with artistic flair</p>
+                                <a href="#" class="btn-yellow portfolio-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category graphic-design">Graphic Design</span>
+                        <h3>Modern Graphic Art</h3>
+                        <p>Contemporary graphic art project combining modern design trends with creative artistic expression.</p>
+                    </div>
+                </div>
+
                 <!-- PROJECT 2 - Digital Marketing -->
                 <div class="portfolio-card" data-category="digital-marketing">
                     <div class="portfolio-img">
@@ -712,6 +769,27 @@
         </div>
 
     </section>
+
+    <!-- PORTFOLIO MODAL -->
+    <div class="portfolio-modal-overlay" id="portfolioModal">
+        <div class="portfolio-modal-box">
+            <!-- CLOSE BUTTON -->
+            <button class="portfolio-modal-close" onclick="closePortfolioModal()" aria-label="Close Modal">&times;</button>
+            
+            <!-- MODAL CONTENT -->
+            <div class="portfolio-modal-content">
+                <div class="portfolio-modal-header">
+                    <h3 id="portfolioModalTitle">Project Title</h3>
+                </div>
+                <div class="portfolio-modal-body">
+                    <img id="portfolioModalImage" src="" alt="Project Image">
+                </div>
+                <div class="portfolio-modal-footer">
+                    <button class="btn-primary" onclick="closePortfolioModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- BLOG SECTION -->
     <section id="blog"></section>

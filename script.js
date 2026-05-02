@@ -68,7 +68,7 @@ function toggleFaq(button) {
     }
 }
 
-// Portfolio filter
+// Portfolio filter with premium sliding animations
 function filterPortfolio(category) {
     const cards = document.querySelectorAll('.portfolio-card');
     const buttons = document.querySelectorAll('.filter-btn');
@@ -80,16 +80,45 @@ function filterPortfolio(category) {
         }
     });
 
+    // Hide all cards first
     cards.forEach(card => {
-        if (category === 'all' ||
-            card.getAttribute('data-category') === category) {
-            card.style.display = 'flex';
-            setTimeout(() => card.style.opacity = '1', 10);
-        } else {
-            card.style.opacity = '0';
-            setTimeout(() => card.style.display = 'none', 300);
-        }
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.8)';
+        card.classList.remove('sliding-in');
     });
+
+    // Show filtered cards with sliding animations
+    setTimeout(() => {
+        cards.forEach((card, index) => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'flex';
+                
+                // Add sliding animation class
+                setTimeout(() => {
+                    card.classList.add('sliding-in');
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, index * 150); // Staggered animation
+            } else {
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    }, 200);
+
+    // Special enhancement for graphic design filter
+    if (category === 'graphic-design') {
+        setTimeout(() => {
+            const graphicCards = document.querySelectorAll('.portfolio-card[data-category="graphic-design"]');
+            graphicCards.forEach((card, index) => {
+                // Add pulse effect to graphic design cards
+                setTimeout(() => {
+                    card.style.animation = 'portfolioPulse 2s ease-in-out';
+                }, (index * 200) + 800);
+            });
+        }, 1000);
+    }
 }
 
 // Testimonials slider
@@ -473,4 +502,50 @@ document.addEventListener('DOMContentLoaded', function() {
         if (heroRight) heroRight.classList.add('animated');
     }, 4200);
 
+});
+
+// ================================================
+// PORTFOLIO MODAL FUNCTIONS
+// ================================================
+
+// Portfolio modal functions
+function openPortfolioModal(title, imageSrc) {
+    const modal = document.getElementById('portfolioModal');
+    const modalTitle = document.getElementById('portfolioModalTitle');
+    const modalImage = document.getElementById('portfolioModalImage');
+    
+    if (modal && modalTitle && modalImage) {
+        modalTitle.textContent = title;
+        modalImage.src = imageSrc;
+        modalImage.alt = title;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closePortfolioModal() {
+    const modal = document.getElementById('portfolioModal');
+    if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close portfolio modal when clicking outside
+document.addEventListener('DOMContentLoaded', function() {
+    const portfolioModal = document.getElementById('portfolioModal');
+    if (portfolioModal) {
+        portfolioModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePortfolioModal();
+            }
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closePortfolioModal();
+        }
+    });
 });
