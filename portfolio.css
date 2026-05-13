@@ -714,6 +714,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        will-change: transform, opacity; /* Performance optimization */
     }
     
     .back-to-top.visible {

@@ -12,11 +12,13 @@
                     [data-animate] {
                         opacity: 0;
                         transition: opacity 0.3s ease, transform 0.3s ease;
+                        will-change: opacity, transform; /* Performance optimization */
                     }
                     
                     [data-animate].animated {
                         opacity: 1;
                         transform: none !important;
+                        will-change: auto; /* Remove will-change after animation */
                     }
                     /* ------------------------------------------------
    2. ANIMATION DIRECTIONS
@@ -91,18 +93,21 @@
                         opacity: 0;
                         transform: translateX(-60px);
                         transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+                        will-change: opacity, transform;
                     }
                     
                     .hero-right {
                         opacity: 0;
                         transform: translateX(60px);
                         transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+                        will-change: opacity, transform;
                     }
                     
                     .hero-left.animated,
                     .hero-right.animated {
                         opacity: 1;
                         transform: translateX(0);
+                        will-change: auto;
                     }
                     /* ------------------------------------------------
    5. SERVICES SECTION ANIMATIONS

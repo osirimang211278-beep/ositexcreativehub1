@@ -321,8 +321,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Highlight active nav link on scroll
-    window.addEventListener('scroll', () => {
+    // Throttle function for performance
+    function throttle(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Highlight active nav link on scroll (throttled)
+    const handleScroll = throttle(() => {
         const sections = document.querySelectorAll('section[id]');
         const links = document.querySelectorAll('.nav-links a');
         let current = '';
@@ -339,7 +352,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
-    });
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // ------------------------------------------------
     // 3. GET STARTED MODAL
@@ -433,9 +448,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (portfolioSection) statsObserver.observe(portfolioSection);
 
     // ------------------------------------------------
-    // 7. BACK TO TOP BUTTON - scroll listener
+    // 7. BACK TO TOP BUTTON - scroll listener (throttled)
     // ------------------------------------------------
-    window.addEventListener('scroll', () => {
+    const handleBackToTop = throttle(() => {
         const backToTop = document.getElementById('backToTop');
         if (backToTop) {
             if (window.scrollY > 300) {
@@ -444,20 +459,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTop.classList.remove('visible');
             }
         }
-    });
+    }, 100);
+
+    window.addEventListener('scroll', handleBackToTop, { passive: true });
 
     // ------------------------------------------------
-    // 8. SCROLL ANIMATIONS - triggers animate.css
+    // 8. SCROLL ANIMATIONS - triggers animate.css (optimized)
     // ------------------------------------------------
     const animateOnScroll = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
-            } else {
-                entry.target.classList.remove('animated');
+                // Unobserve after animation to improve performance
+                animateOnScroll.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '50px' // Trigger slightly before element enters viewport
+    });
 
     // All elements that need animation
     const animatedElements = document.querySelectorAll(`
